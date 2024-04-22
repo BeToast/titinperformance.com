@@ -1,2 +1,15 @@
 #root {
 }
+
+@layer base {
+   @font-face {
+      font-family: "EurostarBlackExtended";
+      src: url(/assets/fonts/EurostarBlackExtended.ttf) format("ttf");
+   }
+
+   @font-face {
+      font-family: "Avenir";
+      font-style: normal;
+      src: url(/fonts/Roboto.woff2) format("woff2");
+   }
+}
