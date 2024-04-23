@@ -1,15 +1,42 @@
-#root {
+:root {
+   @apply overflow-hidden;
+   --angled-polygon-path: polygon(
+      0 0,
+      0 calc(100% - 400px),
+      100% 100%,
+      100% 400px
+   );
 }
 
-@layer base {
-   @font-face {
-      font-family: "EurostarBlackExtended";
-      src: url(/assets/fonts/EurostarBlackExtended.ttf) format("ttf");
-   }
+.red-slant {
+   @apply absolute;
+   @apply -z-50;
+   @apply bg-red-700;
+   height: 20vh;
+   @apply w-full;
+}
+.red-slant::after {
+   @apply absolute;
+   content: " ";
+   bottom: -60vh;
+   @apply w-full;
+   @apply border-solid;
+   border-width: 60vh 100vw 0 0;
+   @apply border-transparent;
+   @apply border-t-red-800;
+}
 
-   @font-face {
-      font-family: "Avenir";
-      font-style: normal;
-      src: url(/fonts/Roboto.woff2) format("woff2");
-   }
+.angled-polygon {
+   @apply w-full;
+   /* width: 110%; */
+   top: -5%;
+   left: -5%;
+   transform: rotate(2deg);
+   @apply bg-red-700;
+   /* -webkit-clip-path: var(--angled-polygon-path);
+   clip-path: var(--angled-polygon-path);
+   @apply absolute;
+   @apply -z-50;
+   @apply w-full;
+   @apply h-72; */
 }

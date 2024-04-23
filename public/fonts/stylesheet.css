@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Eurostar Black Extended';
+    src: url('EurostarBlackExtended.woff2') format('woff2'),
+        url('EurostarBlackExtended.woff') format('woff'),
+        url('EurostarBlackExtended.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir-Light.woff2') format('woff2'),
+        url('Avenir-Light.woff') format('woff'),
+        url('Avenir-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 65';
+    src: url('AvenirLTStd-Medium.woff2') format('woff2'),
+        url('AvenirLTStd-Medium.woff') format('woff'),
+        url('AvenirLTStd-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AvenirNextW04';
+    src: url('AvenirNextW04-Regular.woff2') format('woff2'),
+        url('AvenirNextW04-Regular.woff') format('woff'),
+        url('AvenirNextW04-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
