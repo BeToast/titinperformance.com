@@ -4,21 +4,22 @@ const ShadowFrame: React.FC<{
    whiteWidthPx?: number;
    borderRadiusPx?: number;
 }> = ({ children, className = "", whiteWidthPx = 32, borderRadiusPx = 16 }) => {
-   const shadowWidthPx = whiteWidthPx / 2;
-   const roundedClass = `rounded-[${borderRadiusPx}px]`;
-
+   // const shadowWidthPx = whiteWidthPx / 2;
+   // const roundedClass = `rounded-[${borderRadiusPx}px]`;
+   // https://v2.tailwindcss.com/docs/just-in-time-mode#arbitrary-value-support
    return (
-      //TODO: figure out how to make the outerdiv larger than content and absoutely position 3 squares ontop of earchother
-      <div className={`${className} ${roundedClass} overflow-hidden `}>
-         {children}
-         <div className={`h-full w-full rounded-[${borderRadiusPx}px]`} />
-         <div />
+      <div className={className}>
+         {/* white outline */}
+         <div className="relative -z-30 h-full w-full rounded-md border-b-[32px] border-l-[16px] border-r-[32px] border-t-[16px] border-greenwhite bg-greenwhite">
+            {/* red main */}
+            <div className="-z-10 h-full w-full rounded-md bg-red-800">
+               {children}
+            </div>
+            {/* shadow */}
+            <div className="absolute left-4 top-4 -z-20 h-full w-full overflow-visible rounded-md bg-grey-950"></div>
+         </div>
       </div>
    );
-};
-
-ShadowFrame.defaultProps = {
-   whiteWidthPx: 32,
 };
 
 export default ShadowFrame;

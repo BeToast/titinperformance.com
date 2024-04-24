@@ -10,6 +10,8 @@
 }
 
 .red-slant {
+   @apply top-0;
+   @apply left-0;
    @apply absolute;
    @apply -z-50;
    height: 29vh;

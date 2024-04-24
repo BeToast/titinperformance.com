@@ -4,6 +4,7 @@
 
 :root {
    @apply bg-greenwhite;
+   @apply overflow-x-clip;
 }
 
 @layer base {
