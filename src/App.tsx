@@ -8,20 +8,22 @@ function App() {
       <>
          <div className="red-slant" />
 
-         <main className="">
+         <main className="flex justify-center">
             {/* stuff in margins */}
-            <div className="w-10/12">
+            <div className="w-4/6">
                {/* above the fold */}
-               <div className="h-screen">
-                  <ShadowFrame className="h-96 w-96">
-                     <div className="absolute right-0 top-4 h-3/5 fill-greenwhite">
-                        {TITIN}
-                     </div>
-                     <img
-                        className=" h-full w-full object-contain"
-                        src="webp/lukePhotoNew.webp"
-                     />
-                  </ShadowFrame>
+               <div className="h-screen w-full">
+                  <div className=" w-full pt-36">
+                     <ShadowFrame className="float-right h-2/5 w-2/5">
+                        <div className="absolute right-0 top-4 h-3/5 fill-greenwhite">
+                           {TITIN}
+                        </div>
+                        <img
+                           className=" h-full w-full object-contain"
+                           src="webp/lukePhotoNew.webp"
+                        />
+                     </ShadowFrame>
+                  </div>
                </div>
             </div>
          </main>
