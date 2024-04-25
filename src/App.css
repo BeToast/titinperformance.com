@@ -20,9 +20,3 @@
    overflow: hidden;
    z-index: -100;
 }
-
-#luke-photo {
-   position: absolute;
-   right: 0;
-   transform-origin: 50% 100%;
-}

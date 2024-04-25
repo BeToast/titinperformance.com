@@ -1,13 +1,13 @@
-export default function waitForElm(selector: string): Promise<Element> {
+export default function waitForElmId(selector: string): Promise<HTMLElement> {
    return new Promise((resolve) => {
       if (document.querySelector(selector)) {
-         return resolve(document.querySelector(selector)!);
+         return resolve(document.getElementById(selector)!);
       }
 
-      const observer = new MutationObserver((mutations) => {
+      const observer = new MutationObserver(() => {
          if (document.querySelector(selector)) {
             observer.disconnect();
-            resolve(document.querySelector(selector)!);
+            resolve(document.getElementById(selector)!);
          }
       });
 
