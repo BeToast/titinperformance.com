@@ -1,14 +1,10 @@
 // import { useState } from "react";
 import "./App.css";
 import ShadowFrame from "./compos/ShadowFrame";
-import waitForElmId from "./generic/waitForElmId";
+import waitForElm from "./generic/waitForElm";
 import { TITIN } from "./svgs";
 
-import { useState, useEffect } from "react";
-
-const [redSlant, setRedSlant] = useState<HTMLElement>();
-const [lukePhoto, setLukePhoto] = useState<HTMLElement>();
-const [slogan, setSlogan] = useState<HTMLElement>();
+import { useEffect } from "react";
 
 const getVwVh = (): [number, number] => {
    return [
@@ -24,7 +20,11 @@ const getVwVh = (): [number, number] => {
 };
 
 // for red slant rotation
-const rotateRedSlant = (vw: number, vh: number): number => {
+const rotateRedSlant = (
+   redSlant: HTMLElement,
+   vw: number,
+   vh: number,
+): number => {
    let tanhInput;
    //if landscape
    if (vw > vh) {
@@ -41,13 +41,18 @@ const rotateRedSlant = (vw: number, vh: number): number => {
    //slantAglRad is short for redSlantAngleRadians
    let slantAglRad = -1 * Math.tanh(tanhInput);
 
-   redSlant!.style.transform = `rotate(${slantAglRad}rad)`;
+   redSlant.style.transform = `rotate(${slantAglRad}rad)`;
    //return angle for positionLuke()
    return slantAglRad;
 };
 //this function takes angle of redslant*(distance from vp center to lukephoto center) to get -y offest from vp center.
-const positionLuke = (vw: number, vh: number, slantAglRad: number): DOMRect => {
-   const lukeOffset = lukePhoto!.getBoundingClientRect();
+const positionLuke = (
+   lukePhoto: HTMLElement,
+   vw: number,
+   vh: number,
+   slantAglRad: number,
+): DOMRect => {
+   const lukeOffset = lukePhoto.getBoundingClientRect();
    //adj is the adjacent side of triangle for tanh function
    const adj = lukeOffset.left + lukeOffset.width * 0.5 - vw * 0.5;
    //y distance from view center to luke photo center
@@ -55,43 +60,51 @@ const positionLuke = (vw: number, vh: number, slantAglRad: number): DOMRect => {
    //calculate the y pos of luke with angle and adjactent to find opposite
    const lukeYPos = vh * 0.5 - yFromVpCenterToLukePhotoCenter;
    //position luke
-   lukePhoto!.style.top = `${lukeYPos - lukeOffset.height * 0.5}px`;
+   lukePhoto.style.top = `${lukeYPos - lukeOffset.height * 0.5}px`;
    //return lukeOffset for slogan positioning
    return lukeOffset;
 };
 //postition slogan relative to luke
-const positionSlogan = (lukeOffset: DOMRect) => {
-   slogan!.style.top = `${lukeOffset.top}px`;
+const positionSlogan = (slogan: HTMLElement, lukeOffset: DOMRect) => {
+   slogan.style.top = `${lukeOffset.top}px`;
 };
 
-useEffect(() => {
-   //execute all useEffect promises in parallel
-   Promise.all([
-      waitForElmId("#red-slant").then((redSlantEl: HTMLElement) => {
-         setRedSlant(redSlantEl);
-      }),
-      waitForElmId("#luke-photo").then((lukePhotoEl: HTMLElement) => {
-         setLukePhoto(lukePhotoEl);
-      }),
-      waitForElmId("#slogan").then((sloganEl: HTMLElement) => {
-         setSlogan(sloganEl);
-      }),
-   ]).then(() => {
-      resizeHandler();
-   });
-});
-
-addEventListener("resize", () => {
-   resizeHandler();
-});
-const resizeHandler = () => {
+const resizeHandler = (
+   redSlant: HTMLElement,
+   lukePhoto: HTMLElement,
+   slogan: HTMLElement,
+) => {
    let [vw, vh] = getVwVh();
-   let slantAglRad = rotateRedSlant(vw, vh);
-   let lukeOffset = positionLuke(vw, vh, slantAglRad);
-   positionSlogan(lukeOffset);
+   let slantAglRad = rotateRedSlant(redSlant, vw, vh);
+   let lukeOffset = positionLuke(lukePhoto, vw, vh, slantAglRad);
+   positionSlogan(slogan, lukeOffset);
 };
 
 function App() {
+   var redSlant: HTMLElement;
+   var lukePhoto: HTMLElement;
+   var slogan: HTMLElement;
+
+   useEffect(() => {
+      //execute all useEffect promises in parallel
+      Promise.all([
+         waitForElm("#red-slant").then((redSlantEl: HTMLElement | null) => {
+            redSlant = redSlantEl!;
+         }),
+         waitForElm("#luke-photo").then((lukePhotoEl: HTMLElement | null) => {
+            lukePhoto = lukePhotoEl!;
+         }),
+         waitForElm("#slogan").then((sloganEl: HTMLElement | null) => {
+            slogan = sloganEl!;
+         }),
+      ]).then(() => {
+         resizeHandler(redSlant, lukePhoto, slogan);
+         addEventListener("resize", () => {
+            resizeHandler(redSlant, lukePhoto, slogan);
+         });
+      });
+   });
+
    return (
       <>
          <div id="red-slant" />
@@ -122,11 +135,6 @@ function App() {
                </div>
             </div>
          </main>
-
-         {/* <div className="p-8">
-               <div className="font-euro text-5xl">MUST BE or nah CAPS</div>
-               <div className="font-aver text-5xl">here is avenir</div>
-            </div> */}
       </>
    );
 }
