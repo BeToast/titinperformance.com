@@ -40,7 +40,11 @@ export default {
          },
       },
 
-      extend: {},
+      extend: {
+         zIndex: {
+            45: "45",
+         },
+      },
    },
    plugins: [],
 };
