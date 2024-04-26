@@ -18,5 +18,32 @@
    transform-origin: 50% 100%;
    animation: breathe 6s infinite alternate ease-in-out;
    overflow: hidden;
-   z-index: -100;
+}
+#white-tangle {
+   position: absolute;
+   height: 100vh;
+   width: 100vw;
+   @apply bg-greenwhite;
+}
+#black-tangle-frame {
+   position: absolute;
+   height: 260vh;
+   width: 100vw;
+   @apply bg-transparent;
+}
+#black-tangle {
+   position: absolute;
+   height: 200vh;
+   width: 200vw;
+   bottom: 0;
+   transform-origin: 0 100%;
+   @apply bg-grey-950;
+}
+
+#luke-photo {
+   --square-side: 33vw;
+   width: var(--square-side);
+   height: var(--square-side);
+   max-width: 512px;
+   max-height: 512px;
 }
