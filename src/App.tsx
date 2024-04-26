@@ -1,136 +1,20 @@
 // import { useState } from "react";
 import "./App.css";
 import ShadowFrame from "./compos/ShadowFrame";
-import waitForElm from "./generic/waitForElm";
+import waitForElm from "./utils/waitForElm";
+import resizeHandler from "./utils/resizeHandler";
 import { TITIN, TITINperformance } from "./svgs";
 
 import { useEffect } from "react";
-
-const getVwVh = (): [number, number] => {
-   return [
-      Math.max(
-         document.documentElement.clientWidth || 0,
-         window.innerWidth || 0,
-      ),
-      Math.max(
-         document.documentElement.clientHeight || 0,
-         window.innerHeight || 0,
-      ),
-   ];
-};
-
-// for red slant rotation
-const rotateRedSlant = (
-   redSlant: HTMLElement,
-   vw: number,
-   vh: number,
-): number => {
-   let tanhInput;
-   //if landscape
-   if (vw > vh) {
-      //red slant has angled spans middle 60% of vh
-      tanhInput = (vh * 0.6) / vw;
-   } //if portrait
-   else {
-      //red slant has angled spans middle 40% of vh
-      tanhInput = (vh * 0.4) / vw;
-   }
-   // console.log(tanhInput);
-   // console.log(`tangent: ${Math.tan(tanhInput)}`);
-
-   //slantAglRad is short for redSlantAngleRadians
-   let slantAglRad = -1 * Math.tanh(tanhInput);
-
-   redSlant.style.transform = `rotate(${slantAglRad}rad)`;
-   //return angle for positionLuke()
-   return slantAglRad;
-};
-//this function takes angle of redslant*(distance from vp center to lukephoto center) to get -y offest from vp center.
-const positionLuke = (
-   lukePhoto: HTMLElement,
-   vw: number,
-   vh: number,
-   slantAglRad: number,
-): DOMRect => {
-   const lukeOffset = lukePhoto.getBoundingClientRect();
-   //adj is the adjacent side of triangle for tanh function
-   const adj = lukeOffset.left + lukeOffset.width * 0.5 - vw * 0.5;
-   //y distance from view center to luke photo center
-   const yFromVpCenterToLukePhotoCenter = -1 * slantAglRad * adj;
-   //calculate the y pos of luke with angle and adjactent to find opposite
-   const lukeYPos = vh * 0.5 - yFromVpCenterToLukePhotoCenter;
-   //position luke
-   lukePhoto.style.top = `${lukeYPos - lukeOffset.height * 0.5}px`;
-   //return lukeOffset for slogan positioning
-   return lukeOffset;
-};
-//postition slogan relative to luke
-const positionSlogan = (
-   slogan: HTMLElement,
-   vw: number,
-   vh: number,
-   slantAglRad: number,
-) => {
-   const sloganOffset = slogan.getBoundingClientRect();
-   //solving for height of redslant at left of content area. so we can center slogan vertically
-   //adj of tanh function
-   const adj = vw * 0.5 - sloganOffset.left;
-   //solve for opposite side length with tanh.
-   const yFromVpCenterBottomOfRedSlant = -1 * slantAglRad * adj;
-
-   const redSlantHeightAtLeft = vh * 0.5 + yFromVpCenterBottomOfRedSlant;
-
-   slogan.style.top = `${redSlantHeightAtLeft * 0.5 - sloganOffset.height * 0.5}px`;
-
-   // slogan.style.top = `${lukeOffset.top + lukeOffset.height * 0.5 - sloganOffset.height * 0.5}px`;
-};
-
-const positionTitinPerform = (
-   titinPerformAr: HTMLElement[],
-   vh: number,
-   slantAglRad: number,
-) => {
-   //get height of text
-   const titinPerformOffset = titinPerformAr[2].getBoundingClientRect();
-   //set top value for sticky position to work, its the same space as text height
-   titinPerformAr[2].style.top = `${titinPerformOffset.height}px`;
-   //get additional whitespace above text to red using angle
-   const extraWhitespace = -1 * slantAglRad * titinPerformOffset.left;
-   //set height of above-titin-perform, concequetnly position the text.
-   const aboveTitinPerformHeight =
-      vh * 0.9 - titinPerformOffset.height * 0.5 - extraWhitespace * 0.5;
-   titinPerformAr[1].style.height = `${aboveTitinPerformHeight}px`;
-
-   //calc additional height to take up in black-tangle
-   const spaceInBlackTangle = vh - aboveTitinPerformHeight;
-   titinPerformAr[0].style.height = `${vh + spaceInBlackTangle}px`;
-};
-
-const positionBlackTangle = (blackTangle: HTMLElement, slantAglRad: number) => {
-   blackTangle.style.transform = `rotate(${slantAglRad}rad)`;
-};
-
-const resizeHandler = (
-   redSlant: HTMLElement,
-   lukePhoto: HTMLElement,
-   slogan: HTMLElement,
-   titinPerformAr: HTMLElement[],
-   blackTangle: HTMLElement,
-) => {
-   const [vw, vh] = getVwVh();
-   const slantAglRad = rotateRedSlant(redSlant, vw, vh);
-   // const lukeOffset = positionLuke(lukePhoto, vw, vh, slantAglRad);
-   positionLuke(lukePhoto, vw, vh, slantAglRad);
-   positionSlogan(slogan, vw, vh, slantAglRad);
-   positionTitinPerform(titinPerformAr, vh, slantAglRad);
-   positionBlackTangle(blackTangle, slantAglRad);
-};
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import Nav from "./compos/Nav";
+import BookNow from "./compos/BookNow";
 
 function App() {
    var redSlant: HTMLElement;
    var lukePhoto: HTMLElement;
    var slogan: HTMLElement;
-   var titinPerformAr: HTMLElement[] = new Array(3); //0 is wrapper, 1 is above, 2 is text
+   var titinPerformAr: HTMLElement[][] = [new Array(3), new Array(3)]; //0 is wrapper, 1 is above, 2 is text
    var blackTangle: HTMLElement;
 
    useEffect(() => {
@@ -150,15 +34,26 @@ function App() {
                blackTangle = blackTangleEl!;
             },
          ),
-         waitForElm("#titin-perform-wrapper").then((titinPerformWrapperEl) => {
-            titinPerformAr[0] = titinPerformWrapperEl!;
-            waitForElm("#above-titin-perform").then((aboveTitinPerformEl) => {
-               titinPerformAr[1] = aboveTitinPerformEl!;
-               waitForElm("#titin-perform").then((titinPerformEl) => {
-                  titinPerformAr[2] = titinPerformEl!;
+         //should be combined into a for loop
+         waitForElm("#titin-perform-wrapper0").then((titinPerformWrapperEl) => {
+            titinPerformAr[0][0] = titinPerformWrapperEl!;
+            waitForElm("#above-titin-perform0").then((aboveTitinPerformEl) => {
+               titinPerformAr[0][1] = aboveTitinPerformEl!;
+               waitForElm("#titin-perform0").then((titinPerformEl) => {
+                  titinPerformAr[0][2] = titinPerformEl!;
                });
             });
          }),
+         waitForElm("#titin-perform-wrapper1").then((titinPerformWrapperEl) => {
+            titinPerformAr[1][0] = titinPerformWrapperEl!;
+            waitForElm("#above-titin-perform1").then((aboveTitinPerformEl) => {
+               titinPerformAr[1][1] = aboveTitinPerformEl!;
+               waitForElm("#titin-perform1").then((titinPerformEl) => {
+                  titinPerformAr[1][2] = titinPerformEl!;
+               });
+            });
+         }),
+         //end dupilcate code
       ]).then(() => {
          resizeHandler(
             redSlant,
@@ -181,19 +76,98 @@ function App() {
 
    return (
       <>
-         <title>Titin Performance</title>
+         <HelmetProvider>
+            <Helmet>
+               {/* title */}
+               <title>TITIN PERFORMANCE</title>
+               {/* icons */}
+               <link
+                  rel="apple-touch-icon"
+                  sizes="144x144"
+                  href="/apple-touch-icon.png"
+               />
+               <link
+                  rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/favicon-32x32.png"
+               />
+               <link
+                  rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/favicon-16x16.png"
+               />
+               <link rel="manifest" href="/site.webmanifest" />
+               <link
+                  rel="mask-icon"
+                  href="/safari-pinned-tab.svg"
+                  color="#5bbad5"
+               />
+               <meta name="msapplication-TileColor" content="#da532c" />
+               <meta name="theme-color" content="#ffffff" />
+            </Helmet>
+         </HelmetProvider>
 
-         <div id="red-slant" className="-z-30" />
-         <div id="white-tangle" className="-z-40"></div>
+         {/* RED SLAND */}
+         <div id="red-slant" className="-z-30"></div>
+         <div id="red-slant-clip" className="absolute h-screen w-screen">
+            <Nav
+               id="red-slant-nav"
+               className={"text-greenwhite"}
+               logoLeftClass={"fill-greenwhite"}
+               logoRightClass={"fill-greenwhite"}
+            />
+         </div>
+         {/* WHITE TANGLE */}
+         <div id="white-tangle" className="-z-40">
+            <div className="flex w-screen justify-center">
+               {/* stuff in margins */}
+               <div className="w-4/6">
+                  {/* above the fold */}
+                  <div className="relative h-screen w-full">
+                     <div id="titin-perform-wrapper1">
+                        <div id="above-titin-perform1" />
+                        <div
+                           id="titin-perform1"
+                           className="sticky fill-grey-950"
+                        >
+                           {TITINperformance}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="white-tangle-clip" className="absolute h-screen w-[100vh]">
+            <Nav
+               id="white-tangle-nav"
+               className={"-z-40 text-grey-950"}
+               logoLeftClass={"fill-grey-950"}
+               logoRightClass={"fill-red-600"}
+            />
+         </div>
+         {/* BLACK TANGLE */}
          <div id="black-tangle-frame" className="-z-50">
             <div className="relative h-full w-full">
                <div id="black-tangle" className=""></div>
             </div>
+            <div
+               id="black-tangle-clip"
+               className="absolute top-[100vh] h-[160vh] w-full"
+            >
+               <Nav
+                  id="black-tangle-nav"
+                  className={"top-0 text-greenwhite"}
+                  logoLeftClass={"fill-greenwhite"}
+                  logoRightClass={"fill-greenwhite"}
+               />
+            </div>
          </div>
 
-         <main className="flex justify-center">
+         <main className="flex w-screen justify-center">
             {/* stuff in margins */}
-            <div id="main-margin" className="w-4/6">
+            <div className="w-4/6">
                {/* above the fold */}
                <div className="relative h-screen w-full">
                   <ShadowFrame id="luke-photo" className="absolute right-0">
@@ -211,23 +185,18 @@ function App() {
                         <div className="font-aver">at your best.</div>
                      </div>
                   </div>
-                  <div id="titin-perform-wrapper" className="">
-                     <div id="above-titin-perform" />
+                  <div id="titin-perform-wrapper0">
+                     <div id="above-titin-perform0" />
                      <div
-                        id="titin-perform"
-                        className=" sticky fill-greenwhite"
+                        id="titin-perform0"
+                        className="sticky -z-45 fill-greenwhite"
                      >
                         {TITINperformance}
                      </div>
                   </div>
-
-                  {/* <div className="titin-perform-wrapper">
-                     <div className="above-titin-perform" />
-                     <div className="titin-perform sticky fill-greenwhite">
-                        {TITINperformance}
-                     </div>
-                  </div> */}
                </div>
+
+               <BookNow />
             </div>
          </main>
       </>
