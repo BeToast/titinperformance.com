@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Nav from "./compos/Nav";
 import BookNow from "./compos/BookNowSection";
+import QuoterFloater from "./compos/QuoterFloater";
+import Certifications from "./compos/Certifications";
 
 function App() {
    var redSlant: HTMLElement;
@@ -17,6 +19,7 @@ function App() {
    var titinPerformAr: HTMLElement[][] = [new Array(3), new Array(3)]; //0 is wrapper, 1 is above, 2 is text
    var blackTangle: HTMLElement;
    var bookNowAr: HTMLElement[] = new Array(2); //0 is above, 1 is content
+   var quoterFloater: HTMLElement;
 
    useEffect(() => {
       //execute all useEffect promises in parallel
@@ -62,6 +65,11 @@ function App() {
                });
             },
          ),
+         waitForElm("#quoter-floater").then(
+            (quoterFloaterEl: HTMLElement | null) => {
+               quoterFloater = quoterFloaterEl!;
+            },
+         ),
          //end dupilcate code
       ]).then(() => {
          resizeHandler(
@@ -71,6 +79,7 @@ function App() {
             titinPerformAr,
             blackTangle,
             bookNowAr,
+            quoterFloater,
          );
          addEventListener("resize", () => {
             resizeHandler(
@@ -80,6 +89,7 @@ function App() {
                titinPerformAr,
                blackTangle,
                bookNowAr,
+               quoterFloater,
             );
          });
       });
@@ -161,11 +171,11 @@ function App() {
          {/* BLACK TANGLE */}
          <div id="black-tangle-frame" className="-z-50">
             <div className="relative h-full w-full">
-               <div id="black-tangle" className=""></div>
+               <div id="black-tangle"></div>
             </div>
             <div
                id="black-tangle-clip"
-               className="absolute top-[100vh] h-[160vh] w-full"
+               className="absolute top-[100vh] h-[180vh] w-full"
             >
                <Nav
                   id="black-tangle-nav"
@@ -175,10 +185,17 @@ function App() {
                />
             </div>
          </div>
+         {/* heres the nav for the certifications section */}
+         <Nav
+            id=""
+            className={"-z-60 top-0 text-grey-950"}
+            logoLeftClass={"fill-grey-950"}
+            logoRightClass={"fill-red-600"}
+         />
 
          <main className="flex w-screen justify-center">
             {/* stuff in margins */}
-            <div className="w-4/6">
+            <div className="relative w-4/6">
                {/* above the fold */}
                <div className="relative h-screen w-full">
                   <ShadowFrame id="luke-photo" className="absolute right-0">
@@ -208,6 +225,11 @@ function App() {
                </div>
 
                <BookNow />
+               <QuoterFloater />
+               {/* a screen of empty space boi */}
+               <div className="h-screen w-full" />
+
+               <Certifications />
             </div>
          </main>
       </>

@@ -2,12 +2,14 @@ const ShadowFrame: React.FC<{
    children: React.ReactNode;
    id?: string;
    className?: string;
+   bodyClassName?: string;
    whiteWidthPx?: number;
    borderRadiusPx?: number;
 }> = ({
    children,
    id,
    className = "",
+   bodyClassName = "bg-red-800",
    whiteWidthPx = 32,
    borderRadiusPx = 16,
 }) => {
@@ -19,7 +21,7 @@ const ShadowFrame: React.FC<{
          {/* white outline */}
          <div className="relative -z-30 h-full w-full rounded-md border-b-[32px] border-l-[16px] border-r-[32px] border-t-[16px] border-greenwhite bg-greenwhite">
             {/* red main */}
-            <div className="-z-10 h-full w-full rounded-md bg-red-800">
+            <div className={`${bodyClassName} -z-10 h-full w-full rounded-md`}>
                {children}
             </div>
             {/* shadow */}

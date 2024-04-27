@@ -34,7 +34,7 @@
 }
 #black-tangle-frame {
    position: absolute;
-   height: 260vh;
+   height: 280vh;
    width: 100vw;
    @apply bg-transparent;
 }
@@ -47,7 +47,7 @@
    @apply bg-grey-950;
 }
 #black-tangle-clip {
-   clip-path: polygon(0 0, 100% 0, 100% 62.5%, 0 100%);
+   clip-path: polygon(0 0, 100% 0, 100% 66.6666666%, 0 100%);
 }
 
 #luke-photo {

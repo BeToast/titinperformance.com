@@ -43,6 +43,7 @@ export default {
       extend: {
          zIndex: {
             45: "45",
+            60: "60",
          },
       },
    },

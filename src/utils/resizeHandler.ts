@@ -124,6 +124,11 @@ const positionBookNow = (
    bookNowAr[1].style.height = `${vh - spaceAboveBookNow}px`;
 };
 
+const positionQuoterFloater = (quoterFloater: HTMLElement, vh: number) => {
+   const quoterOffest = quoterFloater.getBoundingClientRect();
+   quoterFloater.style.top = `${vh * 2.5 - quoterOffest.height * 0.5}px`;
+};
+
 const resizeHandler = (
    redSlant: HTMLElement,
    lukePhoto: HTMLElement,
@@ -131,6 +136,7 @@ const resizeHandler = (
    titinPerformAr: HTMLElement[][],
    blackTangle: HTMLElement,
    bookNowAr: HTMLElement[],
+   quoterFloater: HTMLElement,
 ) => {
    const [vw, vh] = getVwVh();
    const slantAglRad = rotateRedSlant(redSlant, vw, vh);
@@ -143,6 +149,7 @@ const resizeHandler = (
    );
    positionBlackTangle(blackTangle, slantAglRad);
    positionBookNow(bookNowAr, vh, titinPerformHeight);
+   positionQuoterFloater(quoterFloater, vh);
 };
 
 export default resizeHandler;
