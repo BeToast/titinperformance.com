@@ -14,7 +14,7 @@ export default {
          greenwhite: "#EDF1EF",
          grey: {
             50: "#FCFCFD",
-            // 100: '#F6F8F9',
+            100: "#F6F8F9",
             200: "#EBEDEF",
             // 300: '#D5D7D8', //or D8D8D8??
             // 400: '#B5B8BA',

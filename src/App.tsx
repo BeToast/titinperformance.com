@@ -8,7 +8,7 @@ import { TITIN, TITINperformance } from "./svgs";
 import { useEffect } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Nav from "./compos/Nav";
-import BookNow from "./compos/BookNow";
+import BookNow from "./compos/BookNowSection";
 
 function App() {
    var redSlant: HTMLElement;
@@ -16,6 +16,7 @@ function App() {
    var slogan: HTMLElement;
    var titinPerformAr: HTMLElement[][] = [new Array(3), new Array(3)]; //0 is wrapper, 1 is above, 2 is text
    var blackTangle: HTMLElement;
+   var bookNowAr: HTMLElement[] = new Array(2); //0 is above, 1 is content
 
    useEffect(() => {
       //execute all useEffect promises in parallel
@@ -53,6 +54,14 @@ function App() {
                });
             });
          }),
+         waitForElm("#above-book-now").then(
+            (aboveBookNowEl: HTMLElement | null) => {
+               bookNowAr[0] = aboveBookNowEl!;
+               waitForElm("#book-now").then((bookNowEl: HTMLElement | null) => {
+                  bookNowAr[1] = bookNowEl!;
+               });
+            },
+         ),
          //end dupilcate code
       ]).then(() => {
          resizeHandler(
@@ -61,6 +70,7 @@ function App() {
             slogan,
             titinPerformAr,
             blackTangle,
+            bookNowAr,
          );
          addEventListener("resize", () => {
             resizeHandler(
@@ -69,6 +79,7 @@ function App() {
                slogan,
                titinPerformAr,
                blackTangle,
+               bookNowAr,
             );
          });
       });

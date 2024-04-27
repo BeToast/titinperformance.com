@@ -1,0 +1,3 @@
+.card-row {
+   @apply flex w-full flex-row content-center justify-center space-x-16;
+}

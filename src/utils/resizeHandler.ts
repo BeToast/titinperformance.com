@@ -79,45 +79,49 @@ const positionSlogan = (
 };
 
 const positionTitinPerform = (
-   titinPerformArAr: HTMLElement[][],
+   titinPerformArAr: HTMLElement[][], //0 is wrapper, 1 is above, 2 is text
    vh: number,
    slantAglRad: number,
-) => {
-   /////// FOR 0 - greenwhite ///////
+): number => {
    //get height of text
    var titinPerformOffset = titinPerformArAr[0][2].getBoundingClientRect();
-   //set top value for sticky position to work, its the same space as text height
-   titinPerformArAr[0][2].style.top = `${titinPerformOffset.height}px`;
    //get additional whitespace above text to red using angle
    var extraWhitespace = -1 * slantAglRad * titinPerformOffset.left;
-   //set height of above-titin-perform, concequetnly position the text.
+   //calc height of above-titin-perform
    var aboveTitinPerformHeight =
       vh * 0.9 - titinPerformOffset.height * 0.5 - extraWhitespace * 0.5;
-   titinPerformArAr[0][1].style.height = `${aboveTitinPerformHeight}px`;
+   //calc height of the wrapper to overflowinto blacktangle
+   // var spaceInBlackTangle = vh - aboveTitinPerformHeight;
 
-   //for greenwhite one only.
-   //calc additional height to take up in black-tangle
-   var spaceInBlackTangle = vh - aboveTitinPerformHeight;
-   titinPerformArAr[0][0].style.height = `${vh + spaceInBlackTangle}px`;
+   titinPerformArAr.map((titinPerformAr) => {
+      //set top value for sticky position to work, its the same space as text height
+      titinPerformAr[2].style.top = `${titinPerformOffset.height}px`;
 
-   /////// FOR 1 - grey-950 ///////
-   //get height of text
-   titinPerformOffset = titinPerformArAr[1][2].getBoundingClientRect();
-   //set top value for sticky position to work, its the same space as text height
-   titinPerformArAr[1][2].style.top = `${titinPerformOffset.height}px`;
-   //get additional whitespace above text to red using angle
-   extraWhitespace = -1 * slantAglRad * titinPerformOffset.left;
-   //set height of above-titin-perform, concequetnly position the text.
-   aboveTitinPerformHeight =
-      vh * 0.9 - titinPerformOffset.height * 0.5 - extraWhitespace * 0.5;
-   titinPerformArAr[1][1].style.height = `${aboveTitinPerformHeight}px`;
+      //set height of above-titin-perform, concequetnly position the text.
+      titinPerformAr[1].style.height = `${aboveTitinPerformHeight}px`;
 
-   spaceInBlackTangle = vh - aboveTitinPerformHeight;
-   titinPerformArAr[1][0].style.height = `${vh + spaceInBlackTangle * 0.5}px`;
+      //set height of the wrapper to overflowinto blacktangle
+      titinPerformAr[0].style.height = `${vh + titinPerformOffset.height * 2}px`;
+      // titinPerformAr[0].style.height = `${vh + spaceInBlackTangle}px`; //LEGACY
+   });
+   //return height bc height*3 is space above bookNow
+   return titinPerformOffset.height;
 };
 
 const positionBlackTangle = (blackTangle: HTMLElement, slantAglRad: number) => {
    blackTangle.style.transform = `rotate(${slantAglRad}rad)`;
+};
+
+const positionBookNow = (
+   bookNowAr: HTMLElement[],
+   vh: number,
+   titinPerformHeight: number,
+) => {
+   const spaceAboveBookNow = titinPerformHeight * 3;
+   // position book now below TITIN PERFORMANCE
+   bookNowAr[0].style.height = `${spaceAboveBookNow}px`;
+   // set bookNow height to remanider of page
+   bookNowAr[1].style.height = `${vh - spaceAboveBookNow}px`;
 };
 
 const resizeHandler = (
@@ -126,13 +130,19 @@ const resizeHandler = (
    slogan: HTMLElement,
    titinPerformAr: HTMLElement[][],
    blackTangle: HTMLElement,
+   bookNowAr: HTMLElement[],
 ) => {
    const [vw, vh] = getVwVh();
    const slantAglRad = rotateRedSlant(redSlant, vw, vh);
    positionLuke(lukePhoto, vw, vh, slantAglRad);
    positionSlogan(slogan, vw, vh, slantAglRad);
-   positionTitinPerform(titinPerformAr, vh, slantAglRad);
+   const titinPerformHeight = positionTitinPerform(
+      titinPerformAr,
+      vh,
+      slantAglRad,
+   );
    positionBlackTangle(blackTangle, slantAglRad);
+   positionBookNow(bookNowAr, vh, titinPerformHeight);
 };
 
 export default resizeHandler;
