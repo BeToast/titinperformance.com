@@ -1,4 +1,4 @@
-import BookNowButton from "./BookNowButton";
+import BookNowButton from "../BookNowButton";
 import Card from "./Card";
 import "./style.css";
 
