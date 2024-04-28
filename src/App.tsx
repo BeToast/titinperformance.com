@@ -11,6 +11,7 @@ import Nav from "./compos/Nav";
 import BookNow from "./compos/BookNowSection";
 import QuoterFloater from "./compos/QuoterFloater";
 import Certifications from "./compos/Certifications";
+import Footer from "./compos/Footer";
 
 function App() {
    var redSlant: HTMLElement;
@@ -133,12 +134,7 @@ function App() {
          {/* RED SLAND */}
          <div id="red-slant" className="-z-30"></div>
          <div id="red-slant-clip" className="absolute h-screen w-screen">
-            <Nav
-               id="red-slant-nav"
-               className={"text-greenwhite"}
-               logoLeftClass={"fill-greenwhite"}
-               logoRightClass={"fill-greenwhite"}
-            />
+            <Nav id="red-slant-nav" light={true} />
          </div>
          {/* WHITE TANGLE */}
          <div id="white-tangle" className="-z-40">
@@ -160,13 +156,8 @@ function App() {
                </div>
             </div>
          </div>
-         <div id="white-tangle-clip" className="absolute h-screen w-[100vh]">
-            <Nav
-               id="white-tangle-nav"
-               className={"-z-40 text-grey-950"}
-               logoLeftClass={"fill-grey-950"}
-               logoRightClass={"fill-red-600"}
-            />
+         <div id="white-tangle-clip" className="absolute h-screen w-[100vw]">
+            <Nav id="white-tangle-nav" className={"-z-40"} light={false} />
          </div>
          {/* BLACK TANGLE */}
          <div id="black-tangle-frame" className="-z-50">
@@ -177,21 +168,11 @@ function App() {
                id="black-tangle-clip"
                className="absolute top-[100vh] h-[180vh] w-full"
             >
-               <Nav
-                  id="black-tangle-nav"
-                  className={"top-0 text-greenwhite"}
-                  logoLeftClass={"fill-greenwhite"}
-                  logoRightClass={"fill-greenwhite"}
-               />
+               <Nav id="black-tangle-nav" className={"top-0"} light={true} />
             </div>
          </div>
          {/* heres the nav for the certifications section */}
-         <Nav
-            id=""
-            className={"-z-60 top-0 text-grey-950"}
-            logoLeftClass={"fill-grey-950"}
-            logoRightClass={"fill-red-600"}
-         />
+         <Nav id="" className={"top-0 -z-60"} light={false} />
 
          <main className="flex w-screen justify-center">
             {/* stuff in margins */}
@@ -199,7 +180,7 @@ function App() {
                {/* above the fold */}
                <div className="relative h-screen w-full">
                   <ShadowFrame id="luke-photo" className="absolute right-0">
-                     <div className="absolute right-0 top-4 h-3/5 fill-red-600 opacity-60">
+                     <div className="absolute right-0 top-4 h-3/5 fill-grey-200">
                         {TITIN}
                      </div>
                      <img
@@ -230,6 +211,8 @@ function App() {
                <div className="h-screen w-full" />
 
                <Certifications />
+
+               <Footer />
             </div>
          </main>
       </>

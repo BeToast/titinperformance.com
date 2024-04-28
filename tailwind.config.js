@@ -11,14 +11,15 @@ export default {
       colors: {
          transparent: "transparent",
          current: "currentColor",
+         inherit: "inherit",
          greenwhite: "#EDF1EF",
          grey: {
             50: "#FCFCFD",
             100: "#F6F8F9",
             200: "#EBEDEF",
             // 300: '#D5D7D8', //or D8D8D8??
-            // 400: '#B5B8BA',
-            // 500: '#969A9C',
+            400: "#B5B8BA",
+            500: "#969A9C",
             // 600: '#757B7E',
             // 700: '#545C61',
             800: "#364045",

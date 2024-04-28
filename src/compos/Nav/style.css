@@ -1,0 +1,15 @@
+.light {
+   @apply text-grey-400;
+}
+
+.light-hovered {
+   @apply text-grey-100;
+}
+
+.dark {
+   @apply text-grey-900;
+}
+
+.dark-hovered {
+   @apply text-grey-950;
+}

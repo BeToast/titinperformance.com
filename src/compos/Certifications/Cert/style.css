@@ -1,33 +1,12 @@
-/* @keyframes widen-title {
-   0% {
-      width: auto;
-   }
-   100% {
-      width: 100%;
-   }
-}
-@keyframes widen-line {
-   0% {
-      width: 8px;
-   }
-   100% {
-      width: 100%;
-   }
-} */
-
+/* cert text empty thing to the right of it */
 .empty-grow {
    flex-grow: 1;
    transition: flex-grow 1.2s;
 }
-
 .cert:hover .empty-grow {
    flex-grow: 0.00001;
 }
-
-/* .empty-grow:hover {
-   flex-grow: 0.00001;
-} */
-
+/* cert underline */
 .cert-line {
    width: 24px;
    transition: width 1.2s;
@@ -35,4 +14,24 @@
 
 .cert:hover .cert-line {
    width: 100%;
+}
+/* cert where */
+.cert-where-hide {
+   width: 100%;
+   transition: width 1.2s;
+}
+
+.cert:hover .cert-where-hide {
+   width: 0px;
+}
+/* logo */
+.cert-logo {
+   opacity: 0;
+   transition: opacity 0.6s;
+   transition-delay: 0s;
+}
+.cert:hover .cert-logo {
+   opacity: 100;
+   transition: opacity 1.2s;
+   transition-delay: 0.6s;
 }
