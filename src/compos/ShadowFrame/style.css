@@ -1,0 +1,20 @@
+.red {
+   transition: margin 1s;
+}
+.shadow {
+   transition: margin 1s;
+}
+
+.red.scrolling-up {
+   margin-top: 2px;
+}
+.shadow.scrolling-up {
+   margin-top: 2px;
+}
+
+.red.scrolling-down {
+   margin-top: -2px;
+}
+.shadow.scrolling-down {
+   margin-top: -2px;
+}

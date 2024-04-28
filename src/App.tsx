@@ -12,6 +12,16 @@ import BookNow from "./compos/BookNowSection";
 import QuoterFloater from "./compos/QuoterFloater";
 import Certifications from "./compos/Certifications";
 import Footer from "./compos/Footer";
+import NavTop from "./compos/NavTop";
+import { onScrollHandler, scrollEndHandler } from "./utils/scrollListener";
+
+var scrollListeners: HTMLCollectionOf<Element>;
+
+window.onload = () => {
+   // scrollListeners = document.getElementsByClassName("scroll-listener");
+   // addEventListener("scroll", () => onScrollHandler(scrollListeners));
+   // addEventListener("scrollend", () => scrollEndHandler(scrollListeners));
+};
 
 function App() {
    var redSlant: HTMLElement;
@@ -131,6 +141,8 @@ function App() {
             </Helmet>
          </HelmetProvider>
 
+         <NavTop />
+
          {/* RED SLAND */}
          <div id="red-slant" className="-z-30"></div>
          <div id="red-slant-clip" className="absolute h-screen w-screen">
@@ -208,7 +220,7 @@ function App() {
                <BookNow />
                <QuoterFloater />
                {/* a screen of empty space boi */}
-               <div className="h-screen w-full" />
+               <div id="quoter-scroll" className="h-[90vh] w-full" />
 
                <Certifications />
 

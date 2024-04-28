@@ -5,6 +5,7 @@
 :root {
    @apply bg-greenwhite;
    @apply overflow-x-clip;
+   scroll-behavior: smooth;
 }
 
 @layer base {
