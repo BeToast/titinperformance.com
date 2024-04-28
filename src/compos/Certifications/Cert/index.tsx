@@ -10,7 +10,7 @@ const Cert: React.FC<{
          <div className="cert flex flex-row space-x-2">
             <div className="flex grow flex-col justify-start space-y-1">
                <div className="flex h-10 flex-row justify-end">
-                  <div className="pl-6 font-avel text-3xl text-grey-900">
+                  <div className="cursor-default pl-6 font-avel text-3xl text-grey-900">
                      {title}
                   </div>
                   <div className="empty-grow"></div>
@@ -26,7 +26,7 @@ const Cert: React.FC<{
                </div> */}
                <div className="relative h-10">
                   <div className="cert-where-hide absolute right-0 z-10 h-full bg-greenwhite"></div>
-                  <div className="absolute right-0.5 top-0 z-0 font-avel text-xl text-grey-800">
+                  <div className="absolute right-0.5 top-0 z-0 cursor-default font-avel text-xl text-grey-800">
                      {where}
                   </div>
                </div>

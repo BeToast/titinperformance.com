@@ -3,7 +3,10 @@ import Cert from "./Cert";
 const Certifications: React.FC<{}> = ({}) => {
    return (
       <>
-         <div id="certifications" className="flex w-full flex-col space-y-10">
+         <div
+            id="certifications"
+            className="flex w-full flex-col space-y-10 pt-[10vh]"
+         >
             <Cert
                title="Massage Therapist"
                where="California Massage Therapy Council"
