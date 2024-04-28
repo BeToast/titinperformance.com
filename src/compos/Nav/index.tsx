@@ -6,9 +6,9 @@ const Nav: React.FC<{
    className?: string;
    light: boolean;
 }> = ({ id, className, light }) => {
-   const hoverHandler = (e: any, light: boolean) => {
-      console.log(e.target.classList);
-   };
+   // const hoverHandler = (e: any, light: boolean) => {
+   //    console.log(e.target.classList);
+   // };
    return (
       <>
          <div

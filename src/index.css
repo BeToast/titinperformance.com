@@ -11,9 +11,9 @@
    @font-face {
       font-family: "EurostarBlackExtended";
       src:
-         url("fonts/EurostarBlackExtended.woff2") format("woff2"),
-         url("fonts/EurostarBlackExtended.woff") format("woff"),
-         url("fonts/EurostarBlackExtended.ttf") format("truetype");
+         url("$fonts/EurostarBlackExtended.woff2") format("woff2"),
+         url("$fonts/EurostarBlackExtended.woff") format("woff"),
+         url("$fonts/EurostarBlackExtended.ttf") format("truetype");
       font-weight: 900;
       font-style: normal;
       font-display: swap;
@@ -22,9 +22,9 @@
    @font-face {
       font-family: "AvenirLight";
       src:
-         url("fonts/Avenir-Light.woff2") format("woff2"),
-         url("fonts/Avenir-Light.woff") format("woff"),
-         url("fonts/Avenir-Light.ttf") format("truetype");
+         url("$fonts/Avenir-Light.woff2") format("woff2"),
+         url("$fonts/Avenir-Light.woff") format("woff"),
+         url("$fonts/Avenir-Light.ttf") format("truetype");
       font-weight: 300;
       font-style: normal;
       font-display: swap;
@@ -33,9 +33,9 @@
    @font-face {
       font-family: "AvenirRegular";
       src:
-         url("fonts/AvenirNextW04-Regular.woff2") format("woff2"),
-         url("fonts/AvenirNextW04-Regular.woff") format("woff"),
-         url("fonts/AvenirNextW04-Regular.ttf") format("truetype");
+         url("$fonts/AvenirNextW04-Regular.woff2") format("woff2"),
+         url("$fonts/AvenirNextW04-Regular.woff") format("woff"),
+         url("$fonts/AvenirNextW04-Regular.ttf") format("truetype");
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -44,9 +44,9 @@
    @font-face {
       font-family: "AvenirMedium";
       src:
-         url("fonts/AvenirLTStd-Medium.woff2") format("woff2"),
-         url("fonts/AvenirLTStd-Medium.woff") format("woff"),
-         url("fonts/AvenirLTStd-Medium.ttf") format("truetype");
+         url("$fonts/AvenirLTStd-Medium.woff2") format("woff2"),
+         url("$fonts/AvenirLTStd-Medium.woff") format("woff"),
+         url("$fonts/AvenirLTStd-Medium.ttf") format("truetype");
       font-weight: 500;
       font-style: normal;
       font-display: swap;

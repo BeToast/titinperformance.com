@@ -3,16 +3,7 @@ const ShadowFrame: React.FC<{
    id?: string;
    className?: string;
    bodyClassName?: string;
-   whiteWidthPx?: number;
-   borderRadiusPx?: number;
-}> = ({
-   children,
-   id,
-   className = "",
-   bodyClassName = "bg-red-800",
-   whiteWidthPx = 32,
-   borderRadiusPx = 16,
-}) => {
+}> = ({ children, id, className = "", bodyClassName = "bg-red-800" }) => {
    // const shadowWidthPx = whiteWidthPx / 2;
    // const roundedClass = `rounded-[${borderRadiusPx}px]`;
    // https://v2.tailwindcss.com/docs/just-in-time-mode#arbitrary-value-support

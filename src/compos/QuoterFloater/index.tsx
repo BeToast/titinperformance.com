@@ -1,5 +1,4 @@
 import { quote } from "../../svgs";
-import Certifications from "../Certifications";
 import ShadowFrame from "../ShadowFrame";
 
 const componame: React.FC<{}> = ({}) => {
@@ -17,7 +16,7 @@ const componame: React.FC<{}> = ({}) => {
                   <div className="pb-4 text-5xl text-greenwhite">
                      I'm amazed.
                   </div>
-                  <div className="text-grey-100 pb-8 text-lg">
+                  <div className="pb-8 text-lg text-grey-100">
                      I almost forgot what it was like to be headache free.
                   </div>
                   <div>
