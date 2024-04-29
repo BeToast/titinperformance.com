@@ -38,16 +38,16 @@ const NavTop: React.FC<{}> = ({}) => {
       key: number;
       href: string;
    }[] = [
-      { text: "book-now", key: 1, href: "#black-tangle-clip" },
-      { text: "reviews", key: 2, href: "#quoter-scroll" },
+      { text: "book-now", key: 1, href: "#book" },
+      { text: "reviews", key: 2, href: "#reviews" },
       { text: "certifications", key: 3, href: "#certifications" },
       { text: "address", key: 4, href: "#footer" },
    ];
 
    return (
       <>
-         <div className="fixed z-50 flex flex-col pl-8 pt-8 font-aver text-sm text-transparent">
-            <a href="#red-slant">
+         <div className="text-transparents fixed left-0 z-50 flex flex-col pl-8 pt-8 font-aver text-sm">
+            <a href="#">
                <Logo
                   key={0}
                   className="mb-4"

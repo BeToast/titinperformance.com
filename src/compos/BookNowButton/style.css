@@ -1,0 +1,12 @@
+.book-now-outer {
+   transition: all 0.3s;
+}
+.book-now-outer:hover {
+   @apply bg-red-500;
+}
+.book-now-outer:hover.big {
+   @apply tracking-widest;
+}
+.book-now-outer:hover.small {
+   @apply tracking-widest;
+}

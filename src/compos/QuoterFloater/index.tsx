@@ -12,15 +12,15 @@ const componame: React.FC<{}> = ({}) => {
                className=" max-w-[724px] "
                bodyClassName="relative bg-red-700 flex content-center justify-center w-full "
             >
-               <div className="flex flex-col content-center px-32 py-24 font-aver">
-                  <div className="pb-4 text-5xl text-greenwhite">
+               <div className="flex flex-col content-center px-24 py-20 font-aver lg:px-32 lg:py-24">
+                  <div className="pb-4 text-3xl text-greenwhite lg:text-5xl">
                      I'm amazed.
                   </div>
-                  <div className="pb-8 text-lg text-grey-100">
+                  <div className="pb-8 text-base text-grey-100 lg:text-lg">
                      I almost forgot what it was like to be headache free.
                   </div>
                   <div>
-                     <div className="float-right text-base text-grey-200">
+                     <div className="float-right text-sm text-grey-200 lg:text-base">
                         Jason Schwartz
                      </div>
                   </div>

@@ -19,7 +19,7 @@ const rotateRedSlant = (
 ): number => {
    let tanhInput;
    //if landscape
-   if (vw > vh) {
+   if (vw >= 1025) {
       //red slant has angled spans middle 60% of vh
       tanhInput = (vh * 0.6) / vw;
    } //if portrait
@@ -46,15 +46,20 @@ const positionLuke = (
    slantAglRad: number,
 ): DOMRect => {
    const lukeOffset = lukePhoto.getBoundingClientRect();
-   //adj is the adjacent side of triangle for tanh function
-   const adj = lukeOffset.left + lukeOffset.width * 0.5 - vw * 0.5;
-   //y distance from view center to luke photo center
-   const yFromVpCenterToLukePhotoCenter = -1 * slantAglRad * adj;
-   //calculate the y pos of luke with angle and adjactent to find opposite
-   const lukeYPos = vh * 0.5 - yFromVpCenterToLukePhotoCenter;
-   //position luke
-   lukePhoto.style.top = `${lukeYPos - lukeOffset.height * 0.5}px`;
-   //return lukeOffset for slogan positioning
+   if (vw >= 1025) {
+      //adj is the adjacent side of triangle for tanh function
+      const adj = lukeOffset.left + lukeOffset.width * 0.5 - vw * 0.5;
+      //y distance from view center to luke photo center
+      const yFromVpCenterToLukePhotoCenter = -1 * slantAglRad * adj;
+      //calculate the y pos of luke with angle and adjactent to find opposite
+      const lukeYPos = vh * 0.5 - yFromVpCenterToLukePhotoCenter;
+      //position luke
+      lukePhoto.style.top = `${lukeYPos - lukeOffset.height * 0.5}px`;
+      //return lukeOffset for slogan positioning
+   } else {
+      lukePhoto.style.top = `${vh * 0.5 - lukeOffset.height * 0.5}px`;
+   }
+
    return lukeOffset;
 };
 //postition slogan relative to luke
@@ -65,17 +70,19 @@ const positionSlogan = (
    slantAglRad: number,
 ) => {
    const sloganOffset = slogan.getBoundingClientRect();
-   //solving for height of redslant at left of content area. so we can center slogan vertically
-   //adj of tanh function
-   const adj = vw * 0.5 - sloganOffset.left;
-   //solve for opposite side length with tanh.
-   const yFromVpCenterBottomOfRedSlant = -1 * slantAglRad * adj;
+   if (vw >= 1025) {
+      //solving for height of redslant at left of content area. so we can center slogan vertically
+      //adj of tanh function
+      const adj = vw * 0.5 - sloganOffset.left;
+      //solve for opposite side length with tanh.
+      const yFromVpCenterBottomOfRedSlant = -1 * slantAglRad * adj;
 
-   const redSlantHeightAtLeft = vh * 0.5 + yFromVpCenterBottomOfRedSlant;
+      const redSlantHeightAtLeft = vh * 0.5 + yFromVpCenterBottomOfRedSlant;
 
-   slogan.style.top = `${redSlantHeightAtLeft * 0.5 - sloganOffset.height * 0.5}px`;
-
-   // slogan.style.top = `${lukeOffset.top + lukeOffset.height * 0.5 - sloganOffset.height * 0.5}px`;
+      slogan.style.top = `${redSlantHeightAtLeft * 0.5 - sloganOffset.height * 0.5}px`;
+   } else {
+      slogan.style.top = `${vh * 0.15 - sloganOffset.height * 0.5}px`;
+   }
 };
 
 const positionTitinPerform = (
@@ -124,8 +131,17 @@ const positionBookNow = (
    bookNowAr[1].style.height = `${vh - spaceAboveBookNow}px`;
 };
 
-const positionQuoterFloater = (quoterFloater: HTMLElement, vh: number) => {
+const positionQuoterFloater = (
+   quoterFloater: HTMLElement,
+   vw: number,
+   vh: number,
+) => {
    const quoterOffest = quoterFloater.getBoundingClientRect();
+   // if (vw >= 1025) {
+   //    quoterFloater.style.top = `${vh * 2.5 - quoterOffest.height * 0.5}px`;
+   // } else {
+   //    quoterFloater.style.top = `${vh * 2.6 - quoterOffest.height * 0.5}px`;
+   // }
    quoterFloater.style.top = `${vh * 2.5 - quoterOffest.height * 0.5}px`;
 };
 
@@ -149,7 +165,7 @@ const resizeHandler = (
    );
    positionBlackTangle(blackTangle, slantAglRad);
    positionBookNow(bookNowAr, vh, titinPerformHeight);
-   positionQuoterFloater(quoterFloater, vh);
+   positionQuoterFloater(quoterFloater, vw, vh);
 };
 
 export default resizeHandler;

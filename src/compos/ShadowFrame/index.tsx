@@ -42,17 +42,17 @@ const ShadowFrame: React.FC<{
       <div id={id} className={className}>
          {/* white outline */}
          <div
-            className={`white ${borderClassesOutline()} relative -z-30 h-full w-full rounded-md border-greenwhite bg-greenwhite`}
+            className={`white ${borderClassesOutline()} relative z-10 h-full w-full rounded-md border-greenwhite bg-greenwhite`}
          >
             {/* red main */}
             <div
-               className={`scroll-listener red ${bodyClassName} -z-10 h-full w-full rounded-md`}
+               className={`red ${bodyClassName} z-30 h-full w-full rounded-md`}
             >
                {children}
             </div>
             {/* shadow */}
             <div
-               className={`scroll-listener shadow ${borderClassesShadow()} absolute -z-20 h-full w-full overflow-visible rounded-md bg-grey-950`}
+               className={`shadow ${borderClassesShadow()} absolute -z-10 h-full w-full overflow-visible rounded-md bg-grey-950`}
             ></div>
          </div>
       </div>

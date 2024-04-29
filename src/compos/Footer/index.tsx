@@ -1,6 +1,6 @@
 import { TITINperformance } from "../../svgs";
 import ShadowFrame from "../ShadowFrame";
-import FooterBookNowButton from "../BookNowButton/FooterBookNowButton";
+import BookNowButton from "../BookNowButton";
 import "./style.css";
 
 const Footer: React.FC<{}> = ({}) => {
@@ -10,7 +10,7 @@ const Footer: React.FC<{}> = ({}) => {
             {/* book now */}
             <div className="absolute -top-16 right-0 z-50">
                <ShadowFrame borderSize={16}>
-                  <FooterBookNowButton />
+                  <BookNowButton type="small" />
                </ShadowFrame>
             </div>
             {/* overflow bg */}

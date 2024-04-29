@@ -13,9 +13,8 @@ import QuoterFloater from "./compos/QuoterFloater";
 import Certifications from "./compos/Certifications";
 import Footer from "./compos/Footer";
 import NavTop from "./compos/NavTop";
-import { onScrollHandler, scrollEndHandler } from "./utils/scrollListener";
 
-var scrollListeners: HTMLCollectionOf<Element>;
+// var scrollListeners: HTMLCollectionOf<Element>;
 
 window.onload = () => {
    // scrollListeners = document.getElementsByClassName("scroll-listener");
@@ -111,7 +110,7 @@ function App() {
          <HelmetProvider>
             <Helmet>
                {/* title */}
-               <title>TITIN PERFORMANCE</title>
+               <title>Titin Performance</title>
                {/* icons */}
                <link
                   rel="apple-touch-icon"
@@ -141,9 +140,8 @@ function App() {
             </Helmet>
          </HelmetProvider>
 
-         <NavTop />
-
-         {/* RED SLAND */}
+         {/* RED SLANT id="" for nav scrolling */}
+         <div id="" />
          <div id="red-slant" className="-z-30"></div>
          <div id="red-slant-clip" className="absolute h-screen w-screen">
             <Nav id="red-slant-nav" light={true} />
@@ -177,8 +175,8 @@ function App() {
                <div id="black-tangle"></div>
             </div>
             <div
-               id="black-tangle-clip"
-               className="absolute top-[100vh] h-[180vh] w-full"
+               id="book" //black-tangle-clip
+               className="absolute top-[100vh] w-full"
             >
                <Nav id="black-tangle-nav" className={"top-0"} light={true} />
             </div>
@@ -186,12 +184,16 @@ function App() {
          {/* heres the nav for the certifications section */}
          <Nav id="" className={"top-0 -z-60"} light={false} />
 
-         <main className="flex w-screen justify-center">
+         <main id="main" className="flex w-screen justify-center">
+            <NavTop />
             {/* stuff in margins */}
             <div className="relative w-4/6">
                {/* above the fold */}
                <div className="relative h-screen w-full">
-                  <ShadowFrame id="luke-photo" className="absolute right-0">
+                  <ShadowFrame
+                     id="luke-photo"
+                     className="absolute left-0 right-0 mx-auto lg:left-auto"
+                  >
                      <div className="absolute right-0 top-4 h-3/5 fill-grey-200">
                         {TITIN}
                      </div>
@@ -200,9 +202,14 @@ function App() {
                         src="webp/lukePhotoNew.webp"
                      />
                   </ShadowFrame>
-                  <div id="slogan" className="absolute left-0 stroke-grey-50">
-                     <div className="flex flex-row flex-wrap space-x-2 text-6xl text-greenwhite">
-                        <div className="font-avem md:w-full ">You,</div>
+                  <div
+                     id="slogan"
+                     className="absolute left-0 w-full stroke-grey-50"
+                  >
+                     <div className="flex w-full flex-row flex-wrap justify-center text-4xl text-greenwhite md:text-5xl lg:justify-start xl:text-6xl">
+                        <div className="pr-1.5 font-avem lg:w-full lg:pr-0">
+                           You,
+                        </div>
                         <div className="font-aver">at your best.</div>
                      </div>
                   </div>
@@ -220,7 +227,7 @@ function App() {
                <BookNow />
                <QuoterFloater />
                {/* a screen of empty space boi */}
-               <div id="quoter-scroll" className="h-[90vh] w-full" />
+               <div id="reviews" className="h-[90vh] w-full" />
 
                <Certifications />
 

@@ -29,31 +29,69 @@
    width: 100vw;
    @apply bg-greenwhite;
 }
+
 #white-tangle-clip {
-   clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+   clip-path: polygon(0 70%, 100% 30%, 100% 100%, 0 100%);
 }
+@media (min-width: 1025px) {
+   #white-tangle-clip {
+      clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+   }
+}
+
 #black-tangle-frame {
    position: absolute;
-   height: 280vh;
+   height: 270vh;
    width: 100vw;
    @apply bg-transparent;
+}
+@media (min-width: 1025px) {
+   #black-tangle-frame {
+      height: 280vh;
+   }
 }
 #black-tangle {
    position: absolute;
    height: 200vh;
-   width: 200vw;
+   width: 250vw;
    bottom: 0;
    transform-origin: 0 100%;
    @apply bg-grey-950;
 }
-#black-tangle-clip {
-   clip-path: polygon(0 0, 100% 0, 100% 66.6666666%, 0 100%);
+/* black-tangle-clip  */
+#book {
+   height: 170vh;
+   clip-path: polygon(0 0, 100% 0, 100% 76.5%, 0 100%);
+}
+@media (min-width: 1025px) {
+   #book {
+      height: 180vh;
+      clip-path: polygon(0 0, 100% 0, 100% 66.6666666%, 0 100%);
+   }
 }
 
 #luke-photo {
-   --square-side: 33vw;
+   --square-side: 40vh;
    width: var(--square-side);
    height: var(--square-side);
    max-width: 512px;
    max-height: 512px;
 }
+/* md */
+@media (min-width: 768px) {
+   /* #luke-photo {
+      --square-side: ;
+   } */
+}
+/* lg */
+@media (min-width: 1025px) {
+   #luke-photo {
+      --square-side: 33vw;
+   }
+}
+/* xl */
+/* @media (min-width: 1280px) {
+   #luke-photo {
+      --square-side: 33vw;
+   }
+} */

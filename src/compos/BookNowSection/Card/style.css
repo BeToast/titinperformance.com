@@ -1,0 +1,12 @@
+.card * {
+   transition: all 0.3s;
+   cursor: default;
+}
+
+.card:hover {
+   @apply bg-grey-100;
+}
+
+.card:hover .top-red {
+   @apply bg-red-500;
+}
