@@ -1,6 +1,10 @@
+import { set } from "firebase/database";
 import Logo from "../Nav/Logo";
+import { Divide as Hamburger } from "hamburger-react";
 
-const NavTop: React.FC<{}> = ({}) => {
+const NavTop: React.FC<{
+   setBurgerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setBurgerOpen }) => {
    const mouseOverHandler = (el: HTMLElement) => {
       const navButtons = document.getElementsByClassName(el.id);
       for (let button of navButtons) {
@@ -46,16 +50,26 @@ const NavTop: React.FC<{}> = ({}) => {
 
    return (
       <>
-         <div className="text-transparents fixed left-0 z-50 flex flex-col pl-8 pt-8 font-aver text-sm">
-            <a href="#">
-               <Logo
-                  key={0}
-                  className="mb-4"
-                  leftClass="fill-transparent"
-                  rightClass="fill-transparent"
+         <div className="fixed left-0 z-50 pl-8 pt-8">
+            <div className="block md:hidden">
+               <Hamburger
+                  color={"transparent"}
+                  size={28}
+                  distance="lg"
+                  onToggle={(toggled) => setBurgerOpen(toggled)}
                />
-            </a>
-            {navElArray.map((obj) => navEl(obj))}
+            </div>
+            <div className="hidden flex-col font-aver text-sm text-transparent md:flex">
+               <a href="#">
+                  <Logo
+                     key={0}
+                     className="mb-4"
+                     leftClass="fill-transparent"
+                     rightClass="fill-transparent"
+                  />
+               </a>
+               {navElArray.map((obj) => navEl(obj))}
+            </div>
          </div>
       </>
    );

@@ -40,6 +40,7 @@ export default {
             // 950: '#240400',
          },
          screens: {
+            xs: "463px",
             sm: "640px",
             md: "768px",
             lg: "1025px",

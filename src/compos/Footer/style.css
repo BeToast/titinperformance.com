@@ -1,3 +1,9 @@
 .footer-bg {
-   transform: translate(-17%, 0);
+   transform: translate(-8.5%, 0);
+}
+
+@media (min-width: 768px) {
+   .footer-bg {
+      transform: translate(-17%, 0);
+   }
 }

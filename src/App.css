@@ -12,8 +12,8 @@
 #red-slant {
    position: absolute;
    top: -50vh;
-   left: -50vw;
-   width: 200vw;
+   left: -150vw;
+   width: 400vw;
    height: 100vh;
    transform-origin: 50% 100%;
    animation: breathe 6s infinite alternate ease-in-out;
@@ -54,6 +54,8 @@
    position: absolute;
    height: 200vh;
    width: 250vw;
+
+   min-width: 2000px;
    bottom: 0;
    transform-origin: 0 100%;
    @apply bg-grey-950;
@@ -71,17 +73,23 @@
 }
 
 #luke-photo {
-   --square-side: 40vh;
+   --square-side: 83vw;
    width: var(--square-side);
    height: var(--square-side);
    max-width: 512px;
    max-height: 512px;
 }
+/* sm */
+@media (min-width: 450px) {
+   #luke-photo {
+      --square-side: 66vw;
+   }
+}
 /* md */
 @media (min-width: 768px) {
-   /* #luke-photo {
-      --square-side: ;
-   } */
+   #luke-photo {
+      --square-side: 40vw;
+   }
 }
 /* lg */
 @media (min-width: 1025px) {

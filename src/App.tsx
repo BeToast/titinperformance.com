@@ -5,7 +5,7 @@ import waitForElm from "./utils/waitForElm";
 import resizeHandler from "./utils/resizeHandler";
 import { TITIN, TITINperformance } from "./svgs";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Nav from "./compos/Nav";
 import BookNow from "./compos/BookNowSection";
@@ -30,6 +30,8 @@ function App() {
    var blackTangle: HTMLElement;
    var bookNowAr: HTMLElement[] = new Array(2); //0 is above, 1 is content
    var quoterFloater: HTMLElement;
+
+   const [burgerOpen, setBurgerOpen] = useState(false);
 
    useEffect(() => {
       //execute all useEffect promises in parallel
@@ -109,6 +111,10 @@ function App() {
       <>
          <HelmetProvider>
             <Helmet>
+               <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1.0"
+               />
                {/* title */}
                <title>Titin Performance</title>
                {/* icons */}
@@ -142,15 +148,22 @@ function App() {
 
          {/* RED SLANT id="" for nav scrolling */}
          <div id="" />
-         <div id="red-slant" className="-z-30"></div>
+         {/* <div className="w-screen overflow-x-hidden">
+            
+         </div> */}
+         <div className="red-slant-frame absolute -z-30">
+            <div className="relative h-screen w-screen overflow-x-hidden">
+               <div id="red-slant" className="" />
+            </div>
+         </div>
          <div id="red-slant-clip" className="absolute h-screen w-screen">
-            <Nav id="red-slant-nav" light={true} />
+            <Nav id="red-slant-nav" light={true} burgerOpen={burgerOpen} />
          </div>
          {/* WHITE TANGLE */}
          <div id="white-tangle" className="-z-40">
             <div className="flex w-screen justify-center">
                {/* stuff in margins */}
-               <div className="w-4/6">
+               <div className=" w-10/12 md:w-8/12">
                   {/* above the fold */}
                   <div className="relative h-screen w-full">
                      <div id="titin-perform-wrapper1">
@@ -167,34 +180,51 @@ function App() {
             </div>
          </div>
          <div id="white-tangle-clip" className="absolute h-screen w-[100vw]">
-            <Nav id="white-tangle-nav" className={"-z-40"} light={false} />
+            <Nav
+               id="white-tangle-nav"
+               className={"-z-40"}
+               light={false}
+               burgerOpen={burgerOpen}
+            />
          </div>
          {/* BLACK TANGLE */}
          <div id="black-tangle-frame" className="-z-50">
-            <div className="relative h-full w-full">
+            <div className="relative h-full w-full overflow-x-hidden">
                <div id="black-tangle"></div>
             </div>
             <div
                id="book" //black-tangle-clip
                className="absolute top-[100vh] w-full"
             >
-               <Nav id="black-tangle-nav" className={"top-0"} light={true} />
+               <Nav
+                  id="black-tangle-nav"
+                  className={"top-0"}
+                  light={true}
+                  burgerOpen={burgerOpen}
+               />
             </div>
          </div>
          {/* heres the nav for the certifications section */}
-         <Nav id="" className={"top-0 -z-60"} light={false} />
+         <Nav
+            id=""
+            className={"top-0 -z-60"}
+            light={false}
+            burgerOpen={burgerOpen}
+         />
 
-         <main id="main" className="flex w-screen justify-center">
-            <NavTop />
+         <main id="main" className=" flex w-screen justify-center">
+            <NavTop setBurgerOpen={setBurgerOpen} />
             {/* stuff in margins */}
-            <div className="relative w-4/6">
+            <div className="relative w-10/12 md:w-8/12">
                {/* above the fold */}
                <div className="relative h-screen w-full">
                   <ShadowFrame
+                     borderSize={24}
+                     borderSizeSm={32}
                      id="luke-photo"
                      className="absolute left-0 right-0 mx-auto lg:left-auto"
                   >
-                     <div className="absolute right-0 top-4 h-3/5 fill-grey-200">
+                     <div className="absolute right-0 top-3 h-3/5 fill-grey-200 sm:top-4">
                         {TITIN}
                      </div>
                      <img

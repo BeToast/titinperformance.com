@@ -8,16 +8,18 @@ const Footer: React.FC<{}> = ({}) => {
       <>
          <div id="footer" className="relative mt-52">
             {/* book now */}
-            <div className="absolute -top-16 right-0 z-50">
-               <ShadowFrame borderSize={16}>
-                  <BookNowButton type="small" />
-               </ShadowFrame>
+            <div className="absolute -top-16 left-0 right-0 z-50 mx-auto text-center sm:left-auto">
+               <div className="inline-block">
+                  <ShadowFrame borderSize={16}>
+                     <BookNowButton type="small" />
+                  </ShadowFrame>
+               </div>
             </div>
             {/* overflow bg */}
             <div className="footer-bg absolute -z-10 h-full w-screen bg-red-700"></div>
             {/* main content */}
             <div className="w-full bg-red-700 pt-32">
-               <div className="flex flex-col space-y-8 font-aver text-xl text-grey-200">
+               <div className="flex flex-col space-y-8 font-aver text-base text-grey-200 lg:text-xl">
                   <a href="mailto:TitinPerformance1@gmail.com" target="_blank">
                      TitinPerformance1@gmail.com
                   </a>
