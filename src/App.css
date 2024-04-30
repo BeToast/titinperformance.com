@@ -42,6 +42,7 @@
 #black-tangle-frame {
    position: absolute;
    height: 270vh;
+   min-height: 2200px;
    width: 100vw;
    @apply bg-transparent;
 }
@@ -60,6 +61,7 @@
    transform-origin: 0 100%;
    @apply bg-grey-950;
 }
+
 /* black-tangle-clip  */
 #book {
    height: 170vh;

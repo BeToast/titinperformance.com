@@ -253,6 +253,7 @@ function App() {
                      </div>
                   </div>
                </div>
+               <div className="w-screen"></div>
 
                <BookNow />
                <QuoterFloater />
