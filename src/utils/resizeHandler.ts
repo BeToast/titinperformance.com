@@ -115,18 +115,6 @@ const positionTitinPerform = (
    return titinPerformOffset.height;
 };
 
-const positionBookNow = (
-   bookNowAr: HTMLElement[],
-   vh: number,
-   titinPerformHeight: number,
-) => {
-   const spaceAboveBookNow = titinPerformHeight * 3;
-   // position book now below TITIN PERFORMANCE
-   bookNowAr[0].style.height = `${spaceAboveBookNow}px`;
-   // set bookNow height to remanider of page
-   // bookNowAr[1].style.height = `${vh - spaceAboveBookNow}px`;
-};
-
 const resizeHandler = (
    redSlant: HTMLElement,
    lukePhoto: HTMLElement,

@@ -1,4 +1,3 @@
-import { set } from "firebase/database";
 import Logo from "../Nav/Logo";
 import { Divide as Hamburger } from "hamburger-react";
 

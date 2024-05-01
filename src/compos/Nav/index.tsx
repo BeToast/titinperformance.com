@@ -1,6 +1,5 @@
 import Logo from "./Logo";
 import "./style.css";
-import { Divide as Hamburger } from "hamburger-react";
 
 const Nav: React.FC<{
    id: string;
@@ -8,6 +7,7 @@ const Nav: React.FC<{
    light: boolean;
    burgerOpen: boolean;
 }> = ({ id, className, light, burgerOpen }) => {
+   burgerOpen;
    const lightClass = light ? "light" : "dark";
    return (
       <>
