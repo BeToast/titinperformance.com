@@ -9,20 +9,10 @@ import { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Nav from "./compos/Nav";
 import BookNowSection from "./compos/BookNowSection";
-import QuoterFloater from "./compos/QuoterFloater";
 import Certifications from "./compos/Certifications";
 import Footer from "./compos/Footer";
 import NavTop from "./compos/NavTop";
 import Reviews from "./compos/Reviews";
-import Hamburger from "hamburger-react";
-
-// var scrollListeners: HTMLCollectionOf<Element>;
-
-// window.onload = () => {
-// scrollListeners = document.getElementsByClassName("scroll-listener");
-// addEventListener("scroll", () => onScrollHandler(scrollListeners));
-// addEventListener("scrollend", () => scrollEndHandler(scrollListeners));
-// };
 
 function App() {
    var redSlant: HTMLElement;
