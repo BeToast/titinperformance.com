@@ -4,7 +4,10 @@ import "./style.css";
 
 const componame: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
    return (
-      <div className="relative flex h-[40vh] w-full justify-center lg:h-[60vh]">
+      <div
+         id="reviews"
+         className="relative flex h-[40vh] w-full justify-center py-64 lg:h-[60vh]"
+      >
          <div
             id="black-clip-new"
             className="absolute right-[-1px] top-[-1px] h-full w-[101%]"

@@ -8,7 +8,7 @@ import "./style.css";
 const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
    return (
       <>
-         <div className="bingus-clip -z-50 w-screen bg-grey-950">
+         <div id="book-now" className="bingus-clip -z-50 w-screen bg-grey-950">
             {[...Array(3)].map((_, i) => (
                <div className="w-10/12 fill-transparent md:w-8/12" key={i}>
                   {TITINperformance}
@@ -21,10 +21,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                burgerOpen={burgerOpen}
             />
          </div>
-         <div
-            id="book-now"
-            className="relative -mt-[1px] flex min-h-screen w-full flex-wrap justify-center bg-grey-950"
-         >
+         <div className="relative -mt-[1px] flex min-h-screen w-full flex-wrap justify-center bg-grey-950">
             <div className="bingus-clip flex h-full w-full justify-center">
                <Nav
                   id=""

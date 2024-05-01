@@ -42,7 +42,7 @@ const NavTop: React.FC<{
       key: number;
       href: string;
    }[] = [
-      { text: "book-now", key: 1, href: "#book" },
+      { text: "book-now", key: 1, href: "#book-now" },
       { text: "reviews", key: 2, href: "#reviews" },
       { text: "certifications", key: 3, href: "#certifications" },
       { text: "address", key: 4, href: "#footer" },

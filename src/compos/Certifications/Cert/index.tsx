@@ -8,7 +8,7 @@ const Cert: React.FC<{
    return (
       <>
          {/* sm: */}
-         <div className="cert hidden flex-row space-x-2 pl-0 sm:flex md:pl-8 lg:pl-0">
+         <div className="fade-in-hidden cert hidden flex-row space-x-2 pl-0 sm:flex md:pl-8 lg:pl-0">
             <div className="flex grow flex-col justify-start space-y-1 pt-2">
                <div className="flex h-6 flex-row justify-end lg:h-10">
                   <div className="cursor-default pl-6 font-avel text-xl text-grey-900 lg:text-3xl">
@@ -31,7 +31,7 @@ const Cert: React.FC<{
          </div>
 
          {/* < sm: */}
-         <div className="flex flex-row items-center space-x-2 pl-0 sm:hidden">
+         <div className="fade-in-hidden flex flex-row items-center space-x-2 pl-0 sm:hidden">
             <div className="relative flex grow flex-col content-center justify-start space-y-1">
                <div className="xs:text-lg cursor-default font-avel text-base text-grey-900">
                   {title}
