@@ -12,14 +12,14 @@ const Nav: React.FC<{
    return (
       <>
          <div id={id}>
-            <div className={`${className} fixed block pl-6 pt-6 md:hidden`}>
+            {/* <div className={`${className} fixed block pl-6 pt-6 md:hidden`}>
                <Hamburger
                   toggled={burgerOpen}
                   color={light ? "#EBEDEF" : "#0E1114"}
                   size={28}
                   distance="lg"
                />
-            </div>
+            </div> */}
             <div
                className={`${className} ${lightClass} fixed hidden flex-col space-y-8 pl-8 pt-8 md:flex`}
             >

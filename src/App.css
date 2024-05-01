@@ -39,7 +39,7 @@
    }
 }
 
-#black-tangle-frame {
+/* #black-tangle-frame {
    position: absolute;
    height: 270vh;
    min-height: 2200px;
@@ -60,10 +60,10 @@
    bottom: 0;
    transform-origin: 0 100%;
    @apply bg-grey-950;
-}
+} */
 
 /* black-tangle-clip  */
-#book {
+/* #book {
    height: 170vh;
    clip-path: polygon(0 0, 100% 0, 100% 76.5%, 0 100%);
 }
@@ -72,7 +72,7 @@
       height: 180vh;
       clip-path: polygon(0 0, 100% 0, 100% 66.6666666%, 0 100%);
    }
-}
+} */
 
 #luke-photo {
    --square-side: 83vw;
