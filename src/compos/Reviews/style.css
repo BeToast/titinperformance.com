@@ -1,0 +1,4 @@
+#black-clip-new {
+   @apply bg-grey-950;
+   clip-path: polygon(0 0, 100% 0, 0 100%);
+}

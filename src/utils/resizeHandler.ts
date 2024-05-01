@@ -115,10 +115,6 @@ const positionTitinPerform = (
    return titinPerformOffset.height;
 };
 
-const positionBlackTangle = (blackTangle: HTMLElement, slantAglRad: number) => {
-   blackTangle.style.transform = `rotate(${slantAglRad}rad)`;
-};
-
 const positionBookNow = (
    bookNowAr: HTMLElement[],
    vh: number,
@@ -128,21 +124,7 @@ const positionBookNow = (
    // position book now below TITIN PERFORMANCE
    bookNowAr[0].style.height = `${spaceAboveBookNow}px`;
    // set bookNow height to remanider of page
-   bookNowAr[1].style.height = `${vh - spaceAboveBookNow}px`;
-};
-
-const positionQuoterFloater = (
-   quoterFloater: HTMLElement,
-   vw: number,
-   vh: number,
-) => {
-   const quoterOffest = quoterFloater.getBoundingClientRect();
-   // if (vw >= 1025) {
-   //    quoterFloater.style.top = `${vh * 2.5 - quoterOffest.height * 0.5}px`;
-   // } else {
-   //    quoterFloater.style.top = `${vh * 2.6 - quoterOffest.height * 0.5}px`;
-   // }
-   quoterFloater.style.top = `${vh * 2.5 - quoterOffest.height * 0.5}px`;
+   // bookNowAr[1].style.height = `${vh - spaceAboveBookNow}px`;
 };
 
 const resizeHandler = (
@@ -150,22 +132,12 @@ const resizeHandler = (
    lukePhoto: HTMLElement,
    slogan: HTMLElement,
    titinPerformAr: HTMLElement[][],
-   blackTangle: HTMLElement,
-   bookNowAr: HTMLElement[],
-   quoterFloater: HTMLElement,
 ) => {
    const [vw, vh] = getVwVh();
    const slantAglRad = rotateRedSlant(redSlant, vw, vh);
    positionLuke(lukePhoto, vw, vh, slantAglRad);
    positionSlogan(slogan, vw, vh, slantAglRad);
-   const titinPerformHeight = positionTitinPerform(
-      titinPerformAr,
-      vh,
-      slantAglRad,
-   );
-   positionBlackTangle(blackTangle, slantAglRad);
-   positionBookNow(bookNowAr, vh, titinPerformHeight);
-   positionQuoterFloater(quoterFloater, vw, vh);
+   positionTitinPerform(titinPerformAr, vh, slantAglRad);
 };
 
 export default resizeHandler;

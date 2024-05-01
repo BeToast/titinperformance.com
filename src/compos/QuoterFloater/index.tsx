@@ -6,7 +6,7 @@ const componame: React.FC<{}> = ({}) => {
       <>
          <div
             id="quoter-floater"
-            className="absolute top-0 flex w-full origin-center justify-center"
+            className="flex w-full origin-center justify-center"
          >
             <ShadowFrame
                borderSize={16}

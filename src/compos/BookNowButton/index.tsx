@@ -35,7 +35,7 @@ const BookNowButton: React.FC<{
          <div className="flex justify-center lg:flex-col">
             <a
                target="_blank"
-               href="https://st3.depositphotos.com/3001967/18881/i/450/depositphotos_188818874-stock-photo-book-appointment-web-interface-button.jpg"
+               href="https://www.massagebook.com/business/24949636/select-product/services/category/Bodywork?ncf_source=friendly_url&src=external"
             >
                {buttonJsx}
             </a>

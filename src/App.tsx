@@ -8,28 +8,27 @@ import { TITIN, TITINperformance } from "./svgs";
 import { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Nav from "./compos/Nav";
-import BookNow from "./compos/BookNowSection";
+import BookNowSection from "./compos/BookNowSection";
 import QuoterFloater from "./compos/QuoterFloater";
 import Certifications from "./compos/Certifications";
 import Footer from "./compos/Footer";
 import NavTop from "./compos/NavTop";
+import Reviews from "./compos/Reviews";
+import Hamburger from "hamburger-react";
 
 // var scrollListeners: HTMLCollectionOf<Element>;
 
-window.onload = () => {
-   // scrollListeners = document.getElementsByClassName("scroll-listener");
-   // addEventListener("scroll", () => onScrollHandler(scrollListeners));
-   // addEventListener("scrollend", () => scrollEndHandler(scrollListeners));
-};
+// window.onload = () => {
+// scrollListeners = document.getElementsByClassName("scroll-listener");
+// addEventListener("scroll", () => onScrollHandler(scrollListeners));
+// addEventListener("scrollend", () => scrollEndHandler(scrollListeners));
+// };
 
 function App() {
    var redSlant: HTMLElement;
    var lukePhoto: HTMLElement;
    var slogan: HTMLElement;
    var titinPerformAr: HTMLElement[][] = [new Array(3), new Array(3)]; //0 is wrapper, 1 is above, 2 is text
-   var blackTangle: HTMLElement;
-   var bookNowAr: HTMLElement[] = new Array(2); //0 is above, 1 is content
-   var quoterFloater: HTMLElement;
 
    const [burgerOpen, setBurgerOpen] = useState(false);
 
@@ -45,11 +44,6 @@ function App() {
          waitForElm("#slogan").then((sloganEl: HTMLElement | null) => {
             slogan = sloganEl!;
          }),
-         waitForElm("#black-tangle").then(
-            (blackTangleEl: HTMLElement | null) => {
-               blackTangle = blackTangleEl!;
-            },
-         ),
          //should be combined into a for loop
          waitForElm("#titin-perform-wrapper0").then((titinPerformWrapperEl) => {
             titinPerformAr[0][0] = titinPerformWrapperEl!;
@@ -69,40 +63,11 @@ function App() {
                });
             });
          }),
-         waitForElm("#above-book-now").then(
-            (aboveBookNowEl: HTMLElement | null) => {
-               bookNowAr[0] = aboveBookNowEl!;
-               waitForElm("#book-now").then((bookNowEl: HTMLElement | null) => {
-                  bookNowAr[1] = bookNowEl!;
-               });
-            },
-         ),
-         waitForElm("#quoter-floater").then(
-            (quoterFloaterEl: HTMLElement | null) => {
-               quoterFloater = quoterFloaterEl!;
-            },
-         ),
          //end dupilcate code
       ]).then(() => {
-         resizeHandler(
-            redSlant,
-            lukePhoto,
-            slogan,
-            titinPerformAr,
-            blackTangle,
-            bookNowAr,
-            quoterFloater,
-         );
+         resizeHandler(redSlant, lukePhoto, slogan, titinPerformAr);
          addEventListener("resize", () => {
-            resizeHandler(
-               redSlant,
-               lukePhoto,
-               slogan,
-               titinPerformAr,
-               blackTangle,
-               bookNowAr,
-               quoterFloater,
-            );
+            resizeHandler(redSlant, lukePhoto, slogan, titinPerformAr);
          });
       });
    });
@@ -159,6 +124,7 @@ function App() {
          <div id="red-slant-clip" className="absolute h-screen w-screen">
             <Nav id="red-slant-nav" light={true} burgerOpen={burgerOpen} />
          </div>
+
          {/* WHITE TANGLE */}
          <div id="white-tangle" className="-z-40">
             <div className="flex w-screen justify-center">
@@ -187,23 +153,6 @@ function App() {
                burgerOpen={burgerOpen}
             />
          </div>
-         {/* BLACK TANGLE */}
-         <div id="black-tangle-frame" className="-z-50">
-            <div className="relative h-full w-full overflow-x-hidden">
-               <div id="black-tangle"></div>
-            </div>
-            <div
-               id="book" //black-tangle-clip
-               className="absolute top-[100vh] w-full"
-            >
-               <Nav
-                  id="black-tangle-nav"
-                  className={"top-0"}
-                  light={true}
-                  burgerOpen={burgerOpen}
-               />
-            </div>
-         </div>
          {/* heres the nav for the certifications section */}
          <Nav
             id=""
@@ -211,13 +160,20 @@ function App() {
             light={false}
             burgerOpen={burgerOpen}
          />
-
-         <main id="main" className=" flex w-screen justify-center">
+         {/* <div className="z-70 fixed left-0 top-0 block w-full border-b-[1px] border-grey-600 bg-grey-200 md:hidden">
+            <Hamburger
+               toggled={burgerOpen}
+               color="#0E1114"
+               size={28}
+               distance="lg"
+            />
+         </div> */}
+         <main id="main" className="flex w-screen flex-wrap justify-center">
             <NavTop setBurgerOpen={setBurgerOpen} />
             {/* stuff in margins */}
-            <div className="relative w-10/12 md:w-8/12">
+            <div className="relative h-screen w-10/12 md:w-8/12">
                {/* above the fold */}
-               <div className="relative h-screen w-full">
+               <div className="relative h-screen overflow-y-visible">
                   <ShadowFrame
                      borderSize={24}
                      borderSizeSm={32}
@@ -234,7 +190,7 @@ function App() {
                   </ShadowFrame>
                   <div
                      id="slogan"
-                     className="absolute left-0 w-full stroke-grey-50"
+                     className="absolute left-0 mt-4 w-full stroke-grey-50 md:mt-0"
                   >
                      <div className="flex w-full flex-row flex-wrap justify-center text-4xl text-greenwhite md:text-5xl lg:justify-start xl:text-6xl">
                         <div className="pr-1.5 font-avem lg:w-full lg:pr-0">
@@ -253,17 +209,14 @@ function App() {
                      </div>
                   </div>
                </div>
-               <div className="w-screen"></div>
-
-               <BookNow />
-               <QuoterFloater />
-               {/* a screen of empty space boi */}
-               <div id="reviews" className="h-[90vh] w-full" />
-
-               <Certifications />
-
-               <Footer />
             </div>
+
+            <BookNowSection burgerOpen={burgerOpen} />
+            <Reviews burgerOpen={burgerOpen} />
+
+            <Certifications />
+
+            <Footer />
          </main>
       </>
    );
