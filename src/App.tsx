@@ -20,7 +20,7 @@ function App() {
    var lukePhoto: HTMLElement;
    var slogan: HTMLElement;
    var titinPerformAr: HTMLElement[][] = [new Array(3), new Array(3)]; //0 is wrapper, 1 is above, 2 is text
-   var fadeInAr: Element[];
+   var fadeInSet: Set<Element>;
 
    const [burgerOpen, setBurgerOpen] = useState(false);
 
@@ -64,9 +64,9 @@ function App() {
       });
 
       window.onload = () => {
-         fadeInAr = Array.from(document.getElementsByClassName("fade-wait"));
-         scrollHandler(fadeInAr);
-         addEventListener("scroll", () => scrollHandler(fadeInAr));
+         fadeInSet = new Set(document.getElementsByClassName("fade-wait"));
+         scrollHandler(fadeInSet);
+         addEventListener("scroll", () => scrollHandler(fadeInSet));
       };
    });
 

@@ -1,15 +1,15 @@
 import isElInViewport from "./isElInViewport";
 
-const scrollHandler = (fadeInList: Element[]) => {
-   for (let el of fadeInList) {
-      if (isElInViewport(el)) {
-         el.classList.add("fade-done");
-         el.classList.remove("fade-wait");
-         // fadeInList.remove(el);
+const scrollHandler = (fadeInSet: Set<Element>) => {
+   if (fadeInSet.size > 0) {
+      for (let el of fadeInSet) {
+         if (isElInViewport(el)) {
+            el.classList.add("fade-done");
+            el.classList.remove("fade-wait");
+            fadeInSet.delete(el);
+         }
       }
    }
-
-   console.log(fadeInList);
 };
 
 export default scrollHandler;
