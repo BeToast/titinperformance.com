@@ -13,7 +13,7 @@ const componame: React.FC<{}> = ({}) => {
                className=" max-w-[724px]"
                bodyClassName="relative bg-red-700 flex content-center justify-center w-full "
             >
-               <div className="flex flex-col content-center px-6 py-10 font-aver sm:px-24 sm:py-20 lg:px-32 lg:py-24">
+               <div className="fade-wait flex flex-col content-center px-6 py-10 font-aver sm:px-24 sm:py-20 lg:px-32 lg:py-24">
                   <div className="pb-2 text-2xl text-greenwhite sm:pb-4 sm:text-3xl lg:text-5xl">
                      I'm amazed.
                   </div>
