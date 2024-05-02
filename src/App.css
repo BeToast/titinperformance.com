@@ -65,10 +65,13 @@
    }
 }
 
-.fade-wait {
-   opacity: 0;
-}
-.fade-done {
-   opacity: 100;
-   transition: opacity 1s;
+/* lg */
+@media (min-width: 1025px) {
+   .fade-wait {
+      opacity: 0;
+   }
+   .fade-done {
+      opacity: 100;
+      transition: opacity 1s;
+   }
 }
