@@ -35,7 +35,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                      <Row>
                         <Card
                            className=""
-                           title={"Exercise and Stretching Reccomendations"}
+                           title={"Exercise and Stretching Recommendations"}
                            text={
                               "a tailored exercise and stretching routine to be your best self"
                            }
@@ -52,7 +52,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                         <BookNowButton className="hidden 2xl:block" />
                         <Card
                            className="w-96"
-                           title={"Assesment"}
+                           title={"Assessment"}
                            text={
                               "movement, balance, range of motion, strength and other tests to diagnose your specific issue"
                            }

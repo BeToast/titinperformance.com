@@ -8,7 +8,7 @@ const Card: React.FC<{ className?: string; title: string; text: string }> = ({
    return (
       <>
          <div
-            className={`card ${className} relative rounded-b-md rounded-t-lg bg-grey-200`}
+            className={`card fade-wait ${className} relative rounded-b-md rounded-t-lg bg-grey-200`}
          >
             <div className="top-red inset-x-0 top-0 h-2 w-full rounded-t-md bg-red-700"></div>
             <div className="px-8 py-6">

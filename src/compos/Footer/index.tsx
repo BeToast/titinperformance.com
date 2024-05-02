@@ -24,7 +24,7 @@ const Footer: React.FC<{}> = ({}) => {
                         href="mailto:TitinPerformance1@gmail.com"
                         target="_blank"
                      >
-                        TitinPerformance1@gmail.com
+                        titinperformance1@gmail.com
                      </a>
                      <a
                         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"

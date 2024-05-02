@@ -13,12 +13,14 @@ import Certifications from "./compos/Certifications";
 import Footer from "./compos/Footer";
 import NavTop from "./compos/NavTop";
 import Reviews from "./compos/Reviews";
+import scrollHandler from "./utils/scrollHander";
 
 function App() {
    var redSlant: HTMLElement;
    var lukePhoto: HTMLElement;
    var slogan: HTMLElement;
    var titinPerformAr: HTMLElement[][] = [new Array(3), new Array(3)]; //0 is wrapper, 1 is above, 2 is text
+   var fadeInAr: Element[];
 
    const [burgerOpen, setBurgerOpen] = useState(false);
 
@@ -60,6 +62,12 @@ function App() {
             resizeHandler(redSlant, lukePhoto, slogan, titinPerformAr);
          });
       });
+
+      window.onload = () => {
+         fadeInAr = Array.from(document.getElementsByClassName("fade-wait"));
+         scrollHandler(fadeInAr);
+         addEventListener("scroll", () => scrollHandler(fadeInAr));
+      };
    });
 
    return (
@@ -163,7 +171,7 @@ function App() {
             {/* stuff in margins */}
             <div className="relative h-screen w-10/12 md:w-8/12">
                {/* above the fold */}
-               <div className="relative h-screen overflow-y-visible">
+               <div className="relative h-screen">
                   <ShadowFrame
                      borderSize={24}
                      borderSizeSm={32}
