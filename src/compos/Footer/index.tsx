@@ -23,12 +23,14 @@ const Footer: React.FC<{}> = ({}) => {
                      <a
                         href="mailto:TitinPerformance1@gmail.com"
                         target="_blank"
+                        className="fade-wait"
                      >
                         titinperformance1@gmail.com
                      </a>
                      <a
                         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                         target="_blank"
+                        className="fade-wait"
                      >
                         2371 Iron Point Rd Suite 130, Folsom CA 95630
                      </a>
