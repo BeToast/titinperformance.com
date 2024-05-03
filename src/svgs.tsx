@@ -1,6 +1,6 @@
 export const TITIN = (
    <>
-      <svg className="h-full w-full" viewBox="0 0 83 399">
+      <svg className="h-full" viewBox="0 0 83 399">
          <path
             d="M 0.00,0.00
            C 0.00,0.00 83.00,0.00 83.00,0.00
