@@ -62,12 +62,16 @@ function App() {
             resizeHandler(redSlant, lukePhoto, slogan, titinPerformAr);
          });
       });
-
       window.onload = () => {
          fadeInSet = new Set(document.getElementsByClassName("fade-wait"));
          scrollHandler(fadeInSet);
          addEventListener("scroll", () => scrollHandler(fadeInSet));
       };
+      setTimeout(() => {
+         fadeInSet = new Set(document.getElementsByClassName("fade-wait"));
+         scrollHandler(fadeInSet);
+         addEventListener("scroll", () => scrollHandler(fadeInSet));
+      }, 4000);
    });
 
    return (
