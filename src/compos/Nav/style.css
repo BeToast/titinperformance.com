@@ -5,10 +5,10 @@
    transition: all 0.3s;
 }
 .light {
-   @apply text-grey-400;
+   @apply text-grey-300;
 }
 .dark {
-   @apply text-grey-600;
+   @apply text-grey-800;
 }
 
 .hovered {
