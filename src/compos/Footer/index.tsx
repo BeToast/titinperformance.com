@@ -11,7 +11,7 @@ const Footer: React.FC<{}> = ({}) => {
             <div className="relative flex w-full justify-center bg-red-700">
                {/* main content */}
                <div className="w-10/12 pt-32 md:w-8/12">
-                  <div className="relative flex flex-col space-y-8 font-aver text-base text-grey-200 lg:text-xl">
+                  <div className="relative flex flex-col space-y-8 font-aver text-base text-grey-200 lg:text-2xl">
                      {/* book now */}
                      <div className="absolute -top-48 left-0 right-0 z-50 mx-auto text-center sm:left-auto">
                         <div className="inline-block">
@@ -33,6 +33,10 @@ const Footer: React.FC<{}> = ({}) => {
                         className="fade-wait"
                      >
                         2371 Iron Point Rd Suite 130, Folsom CA 95630
+                        <br />
+                        <span className="font-avem text-grey-300 ">
+                           - office in Cascade Chiropractic
+                        </span>
                      </a>
                      <div></div>
                   </div>
