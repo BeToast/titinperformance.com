@@ -82,6 +82,12 @@ function App() {
                   name="viewport"
                   content="width=device-width, initial-scale=1.0"
                />
+               <meta name="description" content="TITIN Performance, LLC" />
+               <meta
+                  name="keywords"
+                  content="ART, Luke Spates, Training, Conditioning, Physical Therapy, PNF, Cupping, Exercise, Stretching"
+               />
+               <meta name="author" content="Blake Preston" />
                {/* title */}
                <title>Titin Performance</title>
                {/* icons */}
