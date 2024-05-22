@@ -56,8 +56,10 @@ const positionLuke = (
       //position luke
       lukePhoto.style.top = `${lukeYPos - lukeOffset.height * 0.5}px`;
       //return lukeOffset for slogan positioning
-   } else {
+   } else if (vw >= 768) {
       lukePhoto.style.top = `${vh * 0.5 - lukeOffset.height * 0.5}px`;
+   } else {
+      lukePhoto.style.top = `${vh * 0.6 - lukeOffset.height * 0.5}px`;
    }
 
    return lukeOffset;

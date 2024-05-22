@@ -198,13 +198,31 @@ function App() {
                   </ShadowFrame>
                   <div
                      id="slogan"
-                     className="absolute left-0 mt-4 w-full stroke-grey-50 md:mt-0"
+                     className="absolute left-0 mt-4 w-full text-grey-100 md:mt-0"
                   >
-                     <div className="flex w-full flex-row flex-wrap justify-center text-4xl text-greenwhite md:text-5xl lg:justify-start xl:text-6xl">
+                     <div className="mt-8 flex w-full flex-col items-center justify-center lg:items-start">
+                        {/* <div className="flex w-full flex-row flex-wrap justify-center text-4xl text-greenwhite md:text-5xl lg:justify-start xl:text-6xl">
                         <div className="pr-1.5 font-avem lg:w-full lg:pr-0">
                            You,
                         </div>
                         <div className="font-aver">at your best.</div>
+                     </div> */}
+                        <div className="font-avel text-xl lg:text-2xl">
+                           Howdy!
+                        </div>
+                        <div className="max-w-[80%] py-1 text-justify indent-4 font-aver text-sm lg:max-w-[40%] lg:py-2 xl:text-base">
+                           I'm Luke Spates, a certified massage therapist and
+                           trainer. My passion is fixing people and providing
+                           the best quality of care. I use a combination of ART
+                           and my background as a strength coach to help people
+                           live their best lives pain-free.
+                        </div>
+                        <div className="max-w-[80%] text-justify indent-4 font-aver text-sm lg:max-w-[40%] xl:text-base">
+                           ART utilizes depth, tension, and active movement
+                           through a given range of motion to promote increased
+                           circulation, reduce intermuscular friction, and
+                           promote healing.
+                        </div>
                      </div>
                   </div>
                   <div id="titin-perform-wrapper0">

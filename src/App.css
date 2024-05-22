@@ -46,16 +46,36 @@
    max-width: 512px;
    max-height: 512px;
 }
+@media (min-width: 300px) {
+   #luke-photo {
+      --square-side: 70vw;
+   }
+}
 /* sm */
 @media (min-width: 450px) {
    #luke-photo {
-      --square-side: 66vw;
+      --square-side: 60vw;
+   }
+}
+@media (min-width: 450px) {
+   #luke-photo {
+      --square-side: 50vw;
    }
 }
 /* md */
-@media (min-width: 768px) {
+@media (min-width: 680px) {
+   #luke-photo {
+      --square-side: 45vw;
+   }
+}
+@media (min-width: 850px) {
    #luke-photo {
       --square-side: 40vw;
+   }
+}
+@media (min-width: 925px) {
+   #luke-photo {
+      --square-side: 35vw;
    }
 }
 /* lg */
