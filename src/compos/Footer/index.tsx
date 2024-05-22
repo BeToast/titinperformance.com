@@ -28,7 +28,7 @@ const Footer: React.FC<{}> = ({}) => {
                         titinperformance1@gmail.com
                      </a>
                      <a
-                        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                        href="http://maps.apple.com/?address=Titin+Performance+LLC,+2371+Iron+Point+Rd+Ste+130,+Folsom,+CA+95630"
                         target="_blank"
                         className="fade-wait"
                      >
