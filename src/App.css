@@ -83,15 +83,18 @@
    #luke-photo {
       --square-side: 33vw;
    }
-}
-
-/* lg */
-@media (min-width: 1025px) {
    .fade-wait {
       opacity: 0;
    }
    .fade-done {
       opacity: 100;
       transition: opacity 1s;
+   }
+}
+/* 3xl */
+@media (min-width: 2048px) {
+   #luke-photo {
+      max-width: 40vw;
+      max-height: 60vh;
    }
 }

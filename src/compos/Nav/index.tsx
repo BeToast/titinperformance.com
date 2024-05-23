@@ -21,7 +21,7 @@ const Nav: React.FC<{
                />
             </div> */}
             <div
-               className={`${className} ${lightClass} fixed hidden flex-col space-y-8 pl-8 pt-8 md:flex`}
+               className={`${className} ${lightClass} fixed hidden flex-col space-y-8 pl-8 pt-8 font-aver text-sm md:flex 3xl:font-avem 3xl:text-base 4xl:text-lg`}
             >
                <Logo
                   leftClass={light ? "fill-grey-200" : "fill-grey-950"}

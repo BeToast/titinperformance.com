@@ -6,6 +6,7 @@ const ShadowFrame: React.FC<{
    className?: string;
    bodyClassName?: string;
    borderSize?: 32 | 24 | 16;
+   borderSize3xl?: 64 | 48 | 32;
    borderSizeSm?: 32 | 24 | 16;
 }> = ({
    children,
@@ -13,6 +14,7 @@ const ShadowFrame: React.FC<{
    className = "",
    bodyClassName = "bg-red-800",
    borderSize,
+   borderSize3xl = undefined,
    borderSizeSm = borderSize,
 }) => {
    const borderClassesOutline = () => {
@@ -54,7 +56,24 @@ const ShadowFrame: React.FC<{
                "sm:border-b-[32px] sm:border-l-[16px] sm:border-r-[32px] sm:border-t-[16px]";
             break;
       }
-      return `${borderSizeClass} ${borderSizeClassSm}`;
+      var borderSizeClass3xl: string;
+      switch (borderSize3xl) {
+         case 64:
+            borderSizeClass3xl =
+               "3xl:border-b-[64px] 3xl:border-l-[32px] 3xl:border-r-[64px] 3xl:border-t-[32px]";
+            break;
+         case 48:
+            borderSizeClass3xl =
+               "3xl:border-b-[48px] 3xl:border-l-[24px] 3xl:border-r-[48px] 3xl:border-t-[24px]";
+            break;
+         case 32:
+            borderSizeClass3xl =
+               "3xl:border-b-[32px] 3xl:border-l-[16px] 3xl:border-r-[32px] 3xl:border-t-[16px]";
+            break;
+         default:
+            borderSizeClass3xl = "";
+      }
+      return `${borderSizeClass} ${borderSizeClassSm} ${borderSizeClass3xl}`;
    };
    const borderClassesShadow = () => {
       var borderSizeClass: string;
@@ -87,7 +106,21 @@ const ShadowFrame: React.FC<{
             borderSizeClassSm = "sm:left-4 sm:top-4";
             break;
       }
-      return `${borderSizeClass} ${borderSizeClassSm}`;
+      var borderSizeClass3xl: string;
+      switch (borderSize3xl) {
+         case 64:
+            borderSizeClass3xl = "3xl:left-8 3xl:top-8";
+            break;
+         case 48:
+            borderSizeClass3xl = "3xl:left-6 3xl:top-6";
+            break;
+         case 32:
+            borderSizeClass3xl = "3xl:left-4 3xl:top-4";
+            break;
+         default:
+            borderSizeClass3xl = "";
+      }
+      return `${borderSizeClass} ${borderSizeClassSm} ${borderSizeClass3xl}`;
    };
 
    return (

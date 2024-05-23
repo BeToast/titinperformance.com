@@ -1,6 +1,4 @@
 .base {
-   @apply font-aver;
-   @apply text-sm;
    @apply pl-0;
    transition: all 0.3s;
 }
@@ -12,7 +10,6 @@
 }
 
 .hovered {
-   @apply font-avem;
    @apply tracking-wide;
    @apply pl-4;
 }

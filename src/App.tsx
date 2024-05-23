@@ -184,6 +184,7 @@ function App() {
                <div className="relative h-screen">
                   <ShadowFrame
                      borderSize={24}
+                     borderSize3xl={48}
                      borderSizeSm={32}
                      id="luke-photo"
                      className="absolute left-0 right-0 mx-auto lg:left-auto"
@@ -207,17 +208,17 @@ function App() {
                         </div>
                         <div className="font-aver">at your best.</div>
                      </div> */}
-                        <div className="font-avel text-xl lg:text-2xl">
+                        <div className="5xl:text-6xl font-avel text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl">
                            Howdy!
                         </div>
-                        <div className="max-w-[80%] py-1 text-justify indent-4 font-aver text-sm lg:max-w-[40%] lg:py-2 xl:text-base">
+                        <div className="5xl:text-3xl max-w-[80%] py-1 text-justify indent-4 font-aver text-sm lg:max-w-[40%] lg:py-2 xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl">
                            I'm Luke Spates, a certified massage therapist and
                            trainer. My passion is fixing people and providing
                            the best quality of care. I use a combination of ART
                            and my background as a strength coach to help people
                            live their best lives pain-free.
                         </div>
-                        <div className="max-w-[80%] text-justify indent-4 font-aver text-sm lg:max-w-[40%] xl:text-base">
+                        <div className="5xl:text-3xl max-w-[80%] text-justify indent-4 font-aver text-sm lg:max-w-[40%] xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl">
                            ART utilizes depth, tension, and active movement
                            through a given range of motion to promote increased
                            circulation, reduce intermuscular friction, and

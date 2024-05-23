@@ -13,9 +13,9 @@ const Footer: React.FC<{}> = ({}) => {
                <div className="w-10/12 pt-32 md:w-8/12">
                   <div className="relative flex flex-col space-y-8 font-aver text-base text-grey-200 lg:text-2xl">
                      {/* book now */}
-                     <div className="absolute -top-48 left-0 right-0 z-50 mx-auto text-center sm:left-auto">
+                     <div className="absolute -top-48 left-0 right-0 z-50 mx-auto text-center sm:left-auto 3xl:-top-60">
                         <div className="inline-block">
-                           <ShadowFrame borderSize={16}>
+                           <ShadowFrame borderSize={16} borderSize3xl={32}>
                               <BookNowButton type="small" />
                            </ShadowFrame>
                         </div>

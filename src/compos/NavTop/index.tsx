@@ -58,7 +58,7 @@ const NavTop: React.FC<{
                   onToggle={(toggled) => setBurgerOpen(toggled)}
                />
             </div>
-            <div className="hidden flex-col font-aver text-sm text-transparent md:flex">
+            <div className="hidden flex-col font-aver text-sm text-transparent md:flex xl:font-avem 3xl:text-base 4xl:text-lg">
                <a href="#">
                   <Logo
                      key={0}

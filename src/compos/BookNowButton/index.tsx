@@ -9,9 +9,9 @@ const BookNowButton: React.FC<{
       case "big":
          buttonJsx = (
             <div
-               className={`${className} book-now-outer big h-42 w-96 rounded-md bg-red-600 py-14 text-center`}
+               className={`${className} book-now-outer big h-42 w-96 rounded-md bg-red-600 py-14 text-center 3xl:w-[512px] 3xl:py-24`}
             >
-               <div className="inline-block font-euro text-4xl text-grey-100">
+               <div className="inline-block font-euro text-4xl text-grey-100 3xl:text-5xl">
                   BOOK NOW
                </div>
             </div>
@@ -21,9 +21,9 @@ const BookNowButton: React.FC<{
       case "small":
          buttonJsx = (
             <div
-               className={`${className} book-now-outer small w-60 rounded-md bg-red-600 py-8 text-center`}
+               className={`${className} book-now-outer small w-60 rounded-md bg-red-600 py-8 text-center 3xl:w-96 3xl:py-16`}
             >
-               <div className="inline-block font-euro text-xl text-grey-100 ">
+               <div className="inline-block font-euro text-xl text-grey-100 3xl:text-3xl">
                   BOOK NOW
                </div>
             </div>

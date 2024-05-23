@@ -21,7 +21,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                burgerOpen={burgerOpen}
             />
          </div>
-         <div className="relative -mt-[1px] flex min-h-screen w-full flex-wrap justify-center bg-grey-950">
+         <div className="relative -mt-[1px] flex min-h-screen w-full flex-wrap justify-center bg-grey-950 3xl:min-h-[80vh]">
             <div className="bingus-clip flex h-full w-full justify-center">
                <Nav
                   id=""
@@ -43,7 +43,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                      </Row>
                      <Row spaceX="space-x-8 2xl:space-x-16">
                         <Card
-                           className="w-96"
+                           className="w-96 3xl:w-[512px]"
                            title={"ART"}
                            text={
                               "a non-invasive treatment system precisely engineered to locate and quickly resolve soft-tissue discorder"
@@ -51,7 +51,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                         />
                         <BookNowButton className="hidden 2xl:block" />
                         <Card
-                           className="w-96"
+                           className="w-96 3xl:w-[512px]"
                            title={"Assessment"}
                            text={
                               "movement, balance, range of motion, strength and other tests to diagnose your specific issue"
@@ -61,14 +61,14 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
 
                      <Row>
                         <Card
-                           className="w-96"
+                           className="w-96 3xl:w-[512px]"
                            title={"PNF"}
                            text={
                               "a stretching technique utilized to improve muscle elasticity"
                            }
                         />
                         <Card
-                           className="w-96"
+                           className="w-96 3xl:w-[512px]"
                            title={"Cupping"}
                            text={
                               "suction is used to increase blood flow enhancing physical performance"

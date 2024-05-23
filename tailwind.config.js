@@ -55,6 +55,11 @@ export default {
             60: "60",
             70: "70",
          },
+         screens: {
+            "3xl": "2048px",
+            "4xl": "2304px",
+            "5xl": "2560px",
+         },
       },
    },
    plugins: [],
