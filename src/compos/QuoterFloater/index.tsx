@@ -28,6 +28,11 @@ const componame: React.FC<{}> = ({}) => {
                            body: "Luke is relaxing muscles from hip to ankles that have long been too tight to allow proper circulation and walking. I feel much more flexible and neuropathy in calves and upper feet has subsided remarkably.",
                            author: "Kathryn D.",
                         },
+                        {
+                           title: undefined,
+                           body: "That this procedure seems to be helping tremendously.",
+                           author: "Jean A.",
+                        },
                      ]}
                   />
                </div>
