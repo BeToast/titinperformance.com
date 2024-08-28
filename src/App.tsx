@@ -202,27 +202,15 @@ function App() {
                      className="absolute left-0 mt-4 w-full text-grey-100 md:mt-0"
                   >
                      <div className="mt-8 flex w-full flex-col items-center justify-center lg:items-start">
-                        {/* <div className="flex w-full flex-row flex-wrap justify-center text-4xl text-greenwhite md:text-5xl lg:justify-start xl:text-6xl">
-                        <div className="pr-1.5 font-avem lg:w-full lg:pr-0">
-                           You,
+                        <div className="font-avel text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl">
+                           I'm Luke Spates,
                         </div>
-                        <div className="font-aver">at your best.</div>
-                     </div> */}
-                        <div className="5xl:text-6xl font-avel text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl">
-                           Howdy!
-                        </div>
-                        <div className="5xl:text-3xl max-w-[80%] py-1 text-justify indent-4 font-aver text-sm lg:max-w-[40%] lg:py-2 xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl">
-                           I'm Luke Spates, a certified massage therapist and
-                           trainer. My passion is fixing people and providing
-                           the best quality of care. I use a combination of ART
-                           and my background as a strength coach to help people
-                           live their best lives pain-free.
-                        </div>
-                        <div className="5xl:text-3xl max-w-[80%] text-justify indent-4 font-aver text-sm lg:max-w-[40%] xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl">
-                           ART utilizes depth, tension, and active movement
-                           through a given range of motion to promote increased
-                           circulation, reduce intermuscular friction, and
-                           promote healing.
+                        <div className="max-w-[80%] py-1 text-justify indent-4 font-aver text-sm lg:max-w-[40%] lg:py-2 xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl 5xl:text-3xl">
+                           a certified massage therapist and trainer. My passion
+                           is fixing people and providing the best quality of
+                           care. I use a combination of ART and my background as
+                           a strength coach to help people live their best lives
+                           pain-free.
                         </div>
                      </div>
                   </div>

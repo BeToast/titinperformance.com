@@ -2,9 +2,10 @@ import "./style.css";
 
 const Cert: React.FC<{
    title: string;
+   subTitle?: string;
    where: string;
    logoSrc?: string;
-}> = ({ title, where, logoSrc }) => {
+}> = ({ title, subTitle, where, logoSrc }) => {
    return (
       <>
          {/* sm: */}
@@ -16,6 +17,16 @@ const Cert: React.FC<{
                   </div>
                   <div className="empty-grow"></div>
                </div>
+               {subTitle ? (
+                  <div className="flex h-6 flex-row justify-end lg:h-10">
+                     <div className="cursor-default pl-6 font-avel text-xl text-grey-700 lg:text-lg">
+                        {subTitle}
+                     </div>
+                     <div className="empty-grow"></div>
+                  </div>
+               ) : (
+                  <></>
+               )}
 
                <div className="cert-line h-[3px] bg-red-700"></div>
                <div className="relative h-6 lg:h-10">

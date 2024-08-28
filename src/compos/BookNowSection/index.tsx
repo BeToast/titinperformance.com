@@ -34,10 +34,10 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                   <div className="hidden h-full w-full flex-col justify-center space-y-16 md:flex">
                      <Row>
                         <Card
-                           className=""
+                           className="w-[650px]"
                            title={"Exercise and Stretching Recommendations"}
                            text={
-                              "a tailored exercise and stretching routine to be your best self"
+                              "A couple of stretches and exercises to help keep you feeling and moving well during your everyday life."
                            }
                         />
                      </Row>
@@ -46,7 +46,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                            className="w-96 3xl:w-[512px]"
                            title={"ART"}
                            text={
-                              "a non-invasive treatment system precisely engineered to locate and quickly resolve soft-tissue discorder"
+                              "A non-invasive treatment system precisely engineered to locate and quickly resolve soft-tissue discorder."
                            }
                         />
                         <BookNowButton className="hidden 2xl:block" />
@@ -54,28 +54,19 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                            className="w-96 3xl:w-[512px]"
                            title={"Assessment"}
                            text={
-                              "movement, balance, range of motion, strength and other tests to diagnose your specific issue"
+                              "Movement, balance, range of motion, strength and other tests to diagnose your specific issue."
                            }
                         />
                      </Row>
-
                      <Row>
                         <Card
-                           className="w-96 3xl:w-[512px]"
+                           className="w-[650px] 3xl:w-[512px]"
                            title={"PNF"}
                            text={
-                              "a stretching technique utilized to improve muscle elasticity"
-                           }
-                        />
-                        <Card
-                           className="w-96 3xl:w-[512px]"
-                           title={"Cupping"}
-                           text={
-                              "suction is used to increase blood flow enhancing physical performance"
+                              "A stretching technique utilized to improve muscle elasticity."
                            }
                         />
                      </Row>
-
                      <Row>
                         <BookNowButton className="block 2xl:hidden" />
                      </Row>
@@ -87,7 +78,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                         className=""
                         title={"Exercise and Stretching Reccomendations"}
                         text={
-                           "a tailored exercise and stretching routine to be your best self"
+                           "A tailored exercise and stretching routine to be your best self."
                         }
                      />
 
@@ -95,7 +86,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                         className=""
                         title={"ART"}
                         text={
-                           "a non-invasive treatment system precisely engineered to locate and quickly resolve soft-tissue discorder"
+                           "A non-invasive treatment system precisely engineered to locate and quickly resolve soft-tissue disorder."
                         }
                      />
 
@@ -103,7 +94,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                         className=""
                         title={"Assesment"}
                         text={
-                           "movement, balance, range of motion, strength and other tests to diagnose your specific issue"
+                           "Movement, balance, range of motion, strength and other tests to diagnose your specific issue."
                         }
                      />
 
@@ -111,14 +102,7 @@ const BookNowSection: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
                         className=""
                         title={"PNF"}
                         text={
-                           "a stretching technique utilized to improve muscle elasticity"
-                        }
-                     />
-                     <Card
-                        className=""
-                        title={"Cupping"}
-                        text={
-                           "suction is used to increase blood flow enhancing physical performance"
+                           "A stretching technique utilized to improve muscle elasticity."
                         }
                      />
 

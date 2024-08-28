@@ -1,0 +1,7 @@
+.quoter {
+   opacity: 0;
+   transition: opacity 1s;
+}
+.quoter.shown {
+   opacity: 100;
+}

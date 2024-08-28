@@ -1,5 +1,6 @@
 import { quote } from "../../svgs";
 import ShadowFrame from "../ShadowFrame";
+import QuoterRotor from "./QuoterRotor";
 
 const componame: React.FC<{}> = ({}) => {
    return (
@@ -14,18 +15,21 @@ const componame: React.FC<{}> = ({}) => {
                className=""
                bodyClassName="relative bg-red-700 flex content-center justify-center w-full "
             >
-               <div className="fade-wait flex flex-col content-center px-6 py-10 font-aver sm:px-24 sm:py-20 lg:px-32 lg:py-24 3xl:px-48 3xl:py-32">
-                  <div className="pb-2 text-2xl text-greenwhite sm:pb-4 sm:text-3xl lg:text-5xl 3xl:text-6xl">
-                     I'm amazed.
-                  </div>
-                  <div className="pb-4 text-sm text-grey-100 sm:pb-8 sm:text-base lg:text-lg 3xl:text-2xl">
-                     I almost forgot what it was like to be headache free.
-                  </div>
-                  <div>
-                     <div className="float-right text-xs text-grey-200 sm:text-sm lg:text-base 2xl:text-lg">
-                        Jason Schwartz
-                     </div>
-                  </div>
+               <div className="fade-wait">
+                  <QuoterRotor
+                     quoteArray={[
+                        {
+                           title: "I'm amazed.",
+                           body: "I almost forgot what it was like to be headache free.",
+                           author: "Jason Schwartz",
+                        },
+                        {
+                           title: undefined,
+                           body: "Luke is relaxing muscles from hip to ankles that have long been too tight to allow proper circulation and walking. I feel much more flexible and neuropathy in calves and upper feet has subsided remarkably.",
+                           author: "Kathryn D.",
+                        },
+                     ]}
+                  />
                </div>
                {/* QUTOES */}
                <div className="absolute left-4 top-4 fill-greenwhite">

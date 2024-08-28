@@ -14,6 +14,11 @@ const Certifications: React.FC<{}> = ({}) => {
                   logoSrc="webp/certificationWebp/massage.webp"
                />
                <Cert
+                  title="FMS level 1 and 2 Certified"
+                  where="Functional Movement Systems, LLC"
+                  logoSrc="webp/certificationWebp/FMS.webp"
+               />
+               <Cert
                   title="Bachelors of Exercise Science"
                   where="Grand Canyon University"
                   logoSrc="webp/certificationWebp/GCU.webp"
@@ -25,6 +30,7 @@ const Certifications: React.FC<{}> = ({}) => {
                />
                <Cert
                   title="Active Release Techniques Provider"
+                  subTitle="full body level 1 and nerve certified"
                   where="Active Release Techniques, LLC"
                   logoSrc="webp/certificationWebp/art.webp"
                />
