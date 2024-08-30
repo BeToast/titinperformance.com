@@ -14,6 +14,7 @@ import Footer from "./compos/Footer";
 import NavTop from "./compos/NavTop";
 import Reviews from "./compos/Reviews";
 import scrollHandler from "./utils/scrollHander";
+import FaqSection from "./compos/FaqSection";
 
 function App() {
    var redSlant: HTMLElement;
@@ -202,7 +203,7 @@ function App() {
                      className="absolute left-0 mt-4 w-full text-grey-100 md:mt-0"
                   >
                      <div className="mt-8 flex w-full flex-col items-center justify-center lg:items-start">
-                        <div className="font-avel text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl">
+                        <div className="w-4/5 font-avel text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl">
                            I'm Luke Spates,
                         </div>
                         <div className="max-w-[80%] py-1 text-justify indent-4 font-aver text-sm lg:max-w-[40%] lg:py-2 xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl 5xl:text-3xl">
@@ -230,6 +231,7 @@ function App() {
             <Reviews burgerOpen={burgerOpen} />
 
             <Certifications />
+            <FaqSection burgerOpen={burgerOpen} />
 
             <Footer />
          </main>

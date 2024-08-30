@@ -8,7 +8,7 @@ const Quoter: React.FC<{
       <>
          <div
             id={id}
-            className="quoter absolute inset-16 flex flex-col content-center"
+            className="quoter absolute inset-x-6 inset-y-12 flex flex-col content-center sm:inset-x-12 md:inset-16"
          >
             {content.title ? (
                <div className="pb-2 text-2xl text-greenwhite sm:pb-4 sm:text-3xl lg:text-5xl 3xl:text-6xl">

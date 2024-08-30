@@ -42,7 +42,8 @@ const QuoterRotor: React.FC<{
    75;
    return (
       <>
-         <div className="relative h-[300px] w-[700px] px-6 py-10 font-aver sm:px-24 sm:py-20 lg:px-32 lg:py-24 3xl:px-48 3xl:py-32 4xl:h-[450px] 4xl:w-[900px]">
+         {/* widths are defined on shadowframe's parent in QuoterFloater */}
+         <div className="relative h-[275px] w-full font-aver sm:h-[300px] md:h-[300px] lg:h-[300px] 4xl:h-[450px]">
             {quoters}
          </div>
       </>

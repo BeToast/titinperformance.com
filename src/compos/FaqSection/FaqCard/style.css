@@ -1,0 +1,12 @@
+.faq-card * {
+   transition: all 0.3s;
+   cursor: default;
+}
+
+.faq-card:hover {
+   @apply bg-grey-100;
+}
+
+.faq-card:hover .left-red {
+   @apply bg-red-500;
+}

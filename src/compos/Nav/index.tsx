@@ -32,6 +32,7 @@ const Nav: React.FC<{
                <div className={`${lightClass} nav-certifications base`}>
                   certifications
                </div>
+               <div className={`${lightClass} nav-faqs base`}>faqs</div>
                <div className={`${lightClass} nav-address base`}>address</div>
             </div>
          </div>

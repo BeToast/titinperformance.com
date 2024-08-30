@@ -12,10 +12,10 @@ const componame: React.FC<{}> = ({}) => {
             <ShadowFrame
                borderSize={16}
                borderSize3xl={32}
-               className=""
+               className="w-full md:w-[550px] lg:w-[700px] 4xl:w-[900px]"
                bodyClassName="relative bg-red-700 flex content-center justify-center w-full "
             >
-               <div className="fade-wait">
+               <div className="fade-wait w-full">
                   <QuoterRotor
                      quoteArray={[
                         {
