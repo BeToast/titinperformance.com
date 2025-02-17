@@ -35,14 +35,14 @@ const Footer: React.FC<{}> = ({}) => {
                         titinperformance1@gmail.com
                      </a>
                      <a
-                        href="http://maps.apple.com/?address=Titin+Performance+LLC,+2371+Iron+Point+Rd+Ste+130,+Folsom,+CA+95630"
+                        href="http://maps.apple.com/?address=Titin+Performance+LLC,+410+Roseville+Square+Roseville+CA+95687"
                         target="_blank"
                         className="fade-wait"
                      >
-                        2371 Iron Point Rd Suite 130, Folsom CA 95630
+                        410 Roseville Square, Roseville, CA 95678
                         <br />
                         <span className="font-avel text-grey-900 ">
-                           - office in Cascade Chiropractic
+                           - Located inside D1 Training Roseville
                         </span>
                      </a>
                      <div></div>
