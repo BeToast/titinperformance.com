@@ -233,7 +233,7 @@ function App() {
             <Certifications />
             <FaqSection burgerOpen={burgerOpen} />
 
-            <Footer />
+            <Footer burgerOpen={burgerOpen} />
          </main>
       </>
    );

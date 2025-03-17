@@ -2,13 +2,23 @@ import { TITINperformance } from "../../svgs";
 import ShadowFrame from "../ShadowFrame";
 import BookNowButton from "../BookNowButton";
 import "./style.css";
+import Nav from "../Nav";
 
-const Footer: React.FC<{}> = ({}) => {
+const Footer: React.FC<{ burgerOpen: boolean }> = ({ burgerOpen }) => {
    return (
       <>
          <div id="footer" className="w-full">
             {/* overflow bg */}
             <div className="relative flex w-full justify-center bg-greenwhite">
+               {/* nav */}
+               <div className="bingus-clip w-full h-full absolute inset-0 bg-transparent">
+                  <Nav
+                     id=""
+                     className={"top-0 z-10"}
+                     light={false}
+                     burgerOpen={burgerOpen}
+                  />
+               </div>
                {/* main content */}
                <div className="w-10/12 pt-32 md:w-8/12">
                   <div className="relative flex flex-col space-y-8 font-avem text-sm text-grey-900 sm:text-base lg:text-2xl">
@@ -27,6 +37,12 @@ const Footer: React.FC<{}> = ({}) => {
                            </ShadowFrame>
                         </div>
                      </div>
+                     <a
+                        href="tel:760-626-4139"
+                        className="fade-wait"
+                     >
+                        760-626-4139
+                     </a>
                      <a
                         href="mailto:TitinPerformance1@gmail.com"
                         target="_blank"

@@ -33,7 +33,7 @@ const Nav: React.FC<{
                   certifications
                </div>
                <div className={`${lightClass} nav-faqs base`}>faqs</div>
-               <div className={`${lightClass} nav-address base`}>address</div>
+               <div className={`${lightClass} nav-address base`}>contact</div>
             </div>
          </div>
       </>
